@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import Card from '../components/Card'
 
 export default function Packages() {
+  const { t } = useTranslation('packages')
+  const localizedLink = useLocalizedLink()
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   const packages = [
@@ -113,9 +117,9 @@ export default function Packages() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-sm text-white/80 uppercase tracking-wider mb-4">OUR PACKAGES</div>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Choose Your Plan</h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">Everything you need to grow online. Transparent pricing, no hidden fees.</p>
+          <div className="text-sm text-white/80 uppercase tracking-wider mb-4">{t('hero.sectionTitle')}</div>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">{t('hero.title')}</h1>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">{t('hero.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -151,12 +155,12 @@ export default function Packages() {
                 >
                   {pkg.highlighted && (
                     <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-body-sm font-bold px-4 py-2 rounded-full inline-block mb-4 shadow-lg uppercase tracking-wider">
-                      MOST POPULAR
+                      {t('pricing.mostPopular')}
                     </div>
                   )}
                   {pkg.comingSoon && (
                     <div className="bg-gray-500 text-white text-body-sm font-bold px-4 py-2 rounded-full inline-block mb-4 shadow-lg uppercase tracking-wider">
-                      COMING SOON
+                      {t('pricing.comingSoon')}
                     </div>
                   )}
                   
@@ -171,7 +175,7 @@ export default function Packages() {
                     <p className="text-body text-text-primary mb-6">{pkg.description}</p>
 
                     <div className="mb-6">
-                      <h4 className="text-h4 text-primary mb-3 font-semibold">What's Included:</h4>
+                      <h4 className="text-h4 text-primary mb-3 font-semibold">{t('pricing.whatsIncluded')}</h4>
                       <ul className="space-y-2">
                         {pkg.features.map((feature, idx) => (
                           <li key={idx} className="text-body-sm text-text-primary flex items-start">
@@ -183,7 +187,7 @@ export default function Packages() {
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-h4 text-primary mb-3 font-semibold">Perfect For:</h4>
+                      <h4 className="text-h4 text-primary mb-3 font-semibold">{t('pricing.perfectFor')}</h4>
                       <ul className="space-y-2">
                         {pkg.idealFor.map((item, idx) => (
                           <li key={idx} className="text-body-sm text-text-primary flex items-start">
@@ -203,16 +207,16 @@ export default function Packages() {
                         className="w-full"
                         disabled={true}
                       >
-                        Coming Soon
+                        {t('pricing.comingSoon')}
                       </Button>
                     ) : (
-                      <Link to="/contact#contact-form">
+                      <Link to={localizedLink('/contact#contact-form')}>
                         <Button 
                           variant={pkg.highlighted ? 'cta' : 'outline'} 
                           size="md" 
                           className="w-full"
                         >
-                          Choose {pkg.name}
+                          {t('pricing.choose')} {pkg.name}
                         </Button>
                       </Link>
                     )}
@@ -234,10 +238,10 @@ export default function Packages() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">FAQ</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('faq.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('faq.title')}</h2>
             <p className="text-body-lg text-text-primary max-w-2xl mx-auto">
-              Everything you need to know about our packages
+              {t('faq.subtitle')}
             </p>
           </motion.div>
           <div className="space-y-4">
@@ -297,13 +301,13 @@ export default function Packages() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Get Started?
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Have questions? Let's discuss which package is right for you.
+            {t('cta.subtitle')}
           </p>
-          <Link to="/contact#contact-form">
-            <Button variant="secondary" size="lg">Book a Free Consultation</Button>
+          <Link to={localizedLink('/contact#contact-form')}>
+            <Button variant="secondary" size="lg">{t('cta.button')}</Button>
           </Link>
         </motion.div>
       </section>

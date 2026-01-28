@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import rubenImage from '../images/WhatsApp Image 2026-01-11 at 13.25.54.jpeg'
 
 export default function About() {
+  const { t } = useTranslation('about')
+  const localizedLink = useLocalizedLink()
   const values = [
     {
-      title: 'Professionalism',
-      description: 'We are experts. Our work speaks. No compromises on quality.',
+      title: t('values.items.professionalism.title'),
+      description: t('values.items.professionalism.description'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -24,8 +28,8 @@ export default function About() {
       )
     },
     {
-      title: 'Innovation',
-      description: 'AI-powered solutions that give you a competitive edge. We stay ahead of the curve.',
+      title: t('values.items.innovation.title'),
+      description: t('values.items.innovation.description'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -45,9 +49,9 @@ export default function About() {
 
   const team = [
     {
-      name: 'Ruben Thielman',
-      role: 'Founder & Developer',
-      bio: '22-year-old passionate developer building web solutions. Dedicated to creating exceptional digital experiences with clean code, innovative solutions, and user-centered design.',
+      name: t('founder.name'),
+      role: t('team.founderRole'),
+      bio: t('team.founderBio'),
       photo: rubenImage
     }
   ]
@@ -64,9 +68,9 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">ABOUT US</div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">We're Here to Make Web Simple</h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">And Powerful. Building exceptional digital experiences with passion and expertise.</p>
+          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">{t('hero.sectionTitle')}</div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t('hero.title')}</h1>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">{t('hero.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -87,21 +91,17 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">FOUNDER</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">Ruben Thielman</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('founder.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">{t('founder.name')}</h2>
             <div className="space-y-6 text-body-lg text-text-primary max-w-3xl mx-auto">
               <p>
-                I'm a passionate software and web developer dedicated to creating exceptional digital experiences. 
-                With a focus on clean code, innovative solutions, and user-centered design, I bring ideas to life through technology.
+                {t('founder.bio1')}
               </p>
               <p>
-                My work combines technical expertise with creative problem-solving to deliver projects that make an impact. 
-                Whether it's building responsive web applications, developing robust software solutions, or crafting intuitive 
-                user interfaces, I approach each project with attention to detail and a commitment to excellence.
+                {t('founder.bio2')}
               </p>
               <p>
-                At 22 years old, I bring fresh energy and modern approaches to web development, ensuring your business 
-                gets cutting-edge solutions that actually work.
+                {t('founder.bio3')}
               </p>
             </div>
           </motion.div>
@@ -118,10 +118,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">OUR TEAM</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Meet the Team</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('team.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('team.title')}</h2>
             <p className="text-body-lg text-text-primary max-w-2xl mx-auto">
-              Young, passionate, dedicated to excellence
+              {t('team.subtitle')}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -162,10 +162,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">OUR VALUES</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">What We Stand For</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('values.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('values.title')}</h2>
             <p className="text-body-lg text-text-primary max-w-2xl mx-auto">
-              The principles that guide everything we do.
+              {t('values.subtitle')}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -203,14 +203,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Work Together?
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-white/80 mb-8">
-              Let's bring your vision to life with a website that stands out.
+              {t('cta.subtitle')}
             </p>
-            <Link to="/contact#contact-form">
+            <Link to={localizedLink('/contact#contact-form')}>
               <Button variant="cta" size="lg">
-                Get Started Today
+                {t('cta.button')}
               </Button>
             </Link>
           </motion.div>

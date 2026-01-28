@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "sectionTitle": "BLOG",
+    "title": "Onze Expert Inzichten",
+    "subtitle": "Tips, inzichten en strategieën om je bedrijf online te laten gedijen."
+  },
+  "posts": {
+    "article": "Artikel",
+    "blogImage": "Blog Afbeelding",
+    "readMore": "Lees Meer"
+  },
+  "detail": {
+    "loading": "Blogbericht laden...",
+    "backToBlog": "Terug naar Blog",
+    "publishedOn": "Gepubliceerd op",
+    "readTime": "min lezen"
+  },
+  "cta": {
+    "title": "Klaar om je Online Aanwezigheid te Versterken?",
+    "subtitle": "Laten we bespreken hoe we je bedrijf kunnen helpen opvallen online.",
+    "button": "Begin Vandaag"
+  }
+}

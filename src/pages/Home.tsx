@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import { portfolioItems as allPortfolioItems } from '../data/portfolio'
 import { currentProjects } from '../data/currentProjects'
@@ -22,6 +24,8 @@ const serviceImages = {
 
 // Blog Countdown Component
 function BlogCountdown() {
+  const { t } = useTranslation('home')
+  const localizedLink = useLocalizedLink()
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -97,19 +101,19 @@ function BlogCountdown() {
             )}
             <div className="p-8">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs text-text-secondary uppercase tracking-wider bg-accent px-3 py-1 rounded-full">Latest Article</span>
+                <span className="text-xs text-text-secondary uppercase tracking-wider bg-accent px-3 py-1 rounded-full">{t('blogCountdown.latestArticle')}</span>
                 <span className="text-xs text-text-secondary">{latestPost.date}</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">{latestPost.title}</h3>
               <p className="text-body text-text-primary mb-6 line-clamp-3">{latestPost.excerpt}</p>
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-                <Link to={`/blog/${latestPost.slug}`}>
+                <Link to={localizedLink(`/blog/${latestPost.slug}`)}>
                   <Button variant="primary">
-                    Read Full Article
+                    {t('blogCountdown.readFullArticle')}
                   </Button>
                 </Link>
-                <Link to="/blog" className="text-sm text-text-secondary hover:text-primary transition-colors">
-                  View All Posts →
+                <Link to={localizedLink('/blog')} className="text-sm text-text-secondary hover:text-primary transition-colors">
+                  {t('blogCountdown.viewAllPosts')}
                 </Link>
               </div>
             </div>
@@ -126,8 +130,8 @@ function BlogCountdown() {
         className="max-w-2xl mx-auto text-center"
       >
         <div className="bg-accent border border-gray-200 rounded-lg p-8">
-          <h3 className="text-2xl font-bold text-primary mb-2">Blog is Live</h3>
-          <p className="text-body text-text-primary">The first blog post is now available.</p>
+          <h3 className="text-2xl font-bold text-primary mb-2">{t('blogCountdown.blogIsLive')}</h3>
+          <p className="text-body text-text-primary">{t('blogCountdown.firstPostAvailable')}</p>
         </div>
       </motion.div>
     )
@@ -175,6 +179,8 @@ function BlogCountdown() {
 
 export default function Home() {
   const location = useLocation()
+  const { t } = useTranslation('home')
+  const localizedLink = useLocalizedLink()
   const [expandedService, setExpandedService] = useState(0)
   const [showChatWidget, setShowChatWidget] = useState(false)
   const [showHelpMessage, setShowHelpMessage] = useState(false)
@@ -279,20 +285,20 @@ export default function Home() {
 
   const values = [
     {
-      title: 'Professionalism',
-      description: 'We are experts. Our work speaks. No compromises on quality.'
+      title: t('about.values.professionalism.title'),
+      description: t('about.values.professionalism.description')
     },
     {
-      title: 'Accessibility',
-      description: 'Enterprise-grade solutions at startup prices. Everyone deserves a professional web presence.'
+      title: t('about.values.accessibility.title'),
+      description: t('about.values.accessibility.description')
     },
     {
-      title: 'Innovation',
-      description: 'AI-powered solutions that give you a competitive edge. We stay ahead of the curve.'
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description')
     },
     {
-      title: 'Partnership',
-      description: 'We\'re invested in your success. Personal support included. Your growth is our success.'
+      title: t('about.values.partnership.title'),
+      description: t('about.values.partnership.description')
     }
   ]
 
@@ -406,8 +412,8 @@ export default function Home() {
 
   const services = [
     {
-      title: 'Custom Web Design',
-      description: 'We create unique, responsive websites tailored to your brand and business needs. Every website is built from scratch, ensuring your brand stands out with a design that perfectly represents your vision.',
+      title: t('services.items.customWeb.title'),
+      description: t('services.items.customWeb.description'),
       features: [
         'Fully responsive design (mobile, tablet, desktop)',
         'Custom UI/UX design based on your brand',
@@ -417,11 +423,11 @@ export default function Home() {
         'Accessibility compliance (WCAG 2.1 AA)'
       ],
       image: serviceImages.webDesign,
-      benefits: 'Get a website that looks professional, loads fast, and works perfectly on every device.'
+      benefits: t('services.items.customWeb.benefits')
     },
     {
-      title: 'Branding & Graphic Design',
-      description: 'Complete branding solutions to establish your visual identity. From logo design to brand guidelines, we help you create a cohesive brand presence that resonates with your audience.',
+      title: t('services.items.branding.title'),
+      description: t('services.items.branding.description'),
       features: [
         'Logo design and brand identity',
         'Color palette and typography selection',
@@ -431,11 +437,11 @@ export default function Home() {
         'Brand consistency across all touchpoints'
       ],
       image: serviceImages.branding,
-      benefits: 'Build a memorable brand that customers recognize and trust.'
+      benefits: t('services.items.branding.benefits')
     },
     {
-      title: 'SEO & Digital Marketing',
-      description: 'Boost your online visibility and reach your target audience effectively. We implement proven SEO strategies and digital marketing tactics to drive organic traffic and conversions.',
+      title: t('services.items.seo.title'),
+      description: t('services.items.seo.description'),
       features: [
         'On-page SEO optimization',
         'Keyword research and strategy',
@@ -447,11 +453,11 @@ export default function Home() {
         'Link building strategies'
       ],
       image: serviceImages.seo,
-      benefits: 'Rank higher in search results and attract more qualified visitors to your website.'
+      benefits: t('services.items.seo.benefits')
     },
     {
-      title: 'E-commerce Solutions',
-      description: 'Full-featured online stores with secure payment processing. We build e-commerce platforms that make it easy for customers to browse, purchase, and return to your store.',
+      title: t('services.items.ecommerce.title'),
+      description: t('services.items.ecommerce.description'),
       comingSoon: true,
       features: [
         'Product catalog management',
@@ -466,11 +472,11 @@ export default function Home() {
         'Abandoned cart recovery'
       ],
       image: serviceImages.ecommerce,
-      benefits: 'Sell products online with a secure, user-friendly platform that converts visitors into customers.'
+      benefits: t('services.items.ecommerce.benefits')
     },
     {
-      title: 'AI Integration & Automation',
-      description: 'Leverage the power of AI to automate your business processes. From chatbots to workflow automation, we integrate AI solutions that save time and improve customer experience.',
+      title: t('services.items.ai.title'),
+      description: t('services.items.ai.description'),
       features: [
         'AI-powered chatbots',
         'Customer support automation',
@@ -482,11 +488,11 @@ export default function Home() {
         'Lead qualification systems'
       ],
       image: serviceImages.ai,
-      benefits: 'Automate repetitive tasks and provide 24/7 customer support with AI-powered solutions.'
+      benefits: t('services.items.ai.benefits')
     },
     {
-      title: 'Content Management Systems',
-      description: 'Take control of your website content with easy-to-use CMS solutions. Update your website anytime, anywhere, without needing technical knowledge.',
+      title: t('services.items.cms.title'),
+      description: t('services.items.cms.description'),
       features: [
         'User-friendly content editor',
         'Media library management',
@@ -498,7 +504,7 @@ export default function Home() {
         'Scheduled content publishing'
       ],
       image: serviceImages.cms,
-      benefits: 'Manage your website content independently, make updates instantly, and keep your site fresh.'
+      benefits: t('services.items.cms.benefits')
     }
   ]
 
@@ -519,7 +525,7 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="mb-2 relative bg-white border-2 border-gray-200 rounded-lg shadow-lg px-4 py-2 text-sm text-primary font-medium whitespace-nowrap"
             >
-              Can I help?
+              {t('chat.canIHelp')}
               {/* Arrow pointing down to button */}
               <div className="absolute bottom-0 right-6 transform translate-y-full">
                 <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-gray-200"></div>
@@ -577,22 +583,22 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Innovative web solutions for modern business
+                {t('hero.title')}
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                Whether you're a startup, an established business, or an enterprise, we're here to help you reach new heights online.
+                {t('hero.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link to="/contact#contact-form">
-                  <Button size="lg" variant="cta">Book a Call</Button>
+                <Link to={localizedLink('/contact#contact-form')}>
+                  <Button size="lg" variant="cta">{t('hero.ctaPrimary')}</Button>
                 </Link>
-                <Link to="/packages">
-                  <Button size="lg" variant="secondary">View Packages</Button>
+                <Link to={localizedLink('/packages')}>
+                  <Button size="lg" variant="secondary">{t('hero.ctaSecondary')}</Button>
                 </Link>
               </div>
               {/* Social Media Section */}
               <div className="mt-8 mb-8 md:mb-0">
-                <p className="text-white/80 text-sm mb-4 font-medium">Connect with us</p>
+                <p className="text-white/80 text-sm mb-4 font-medium">{t('hero.connectWithUs')}</p>
                 <div className="flex flex-wrap gap-4">
                   {socialLinks.map((social) => (
                     <a
@@ -660,7 +666,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-primary text-sm truncate">Ruben Thielman</div>
-                      <div className="text-body-sm text-text-secondary text-xs">Founder & Developer</div>
+                      <div className="text-body-sm text-text-secondary text-xs">{t('chat.founderDeveloper')}</div>
                     </div>
                     <button 
                       onClick={() => setShowChatWidget(false)}
@@ -681,7 +687,7 @@ export default function Home() {
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-xs">Usually replies within 1 hour</span>
+                      <span className="text-xs">{t('chat.usuallyReplies')}</span>
                     </div>
                   </div>
                   
@@ -732,8 +738,8 @@ export default function Home() {
                       </button>
                     </div>
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="text-xs text-text-secondary/70">Press Enter to send</span>
-                      <Link to="/contact#contact-form" className="text-xs text-cta hover:text-cta/80 transition-colors font-medium">
+                      <span className="text-xs text-text-secondary/70">{t('chat.pressEnterToSend')}</span>
+                      <Link to={localizedLink('/contact#contact-form')} className="text-xs text-cta hover:text-cta/80 transition-colors font-medium">
                         Contact directly →
                       </Link>
                     </div>
@@ -753,21 +759,21 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">ABOUT US</div>
+              <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('about.sectionTitle')}</div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                We build websites that work.
+                {t('about.title')}
               </h2>
               <div className="space-y-4 text-lg text-text-primary leading-relaxed">
                 <p>
-                  No fluff. No overpromising. Just clean, effective websites that help your business grow.
+                  {t('about.subtitle1')}
                 </p>
                 <p>
-                  We focus on what matters: your goals, your audience, and results that make a difference.
+                  {t('about.subtitle2')}
                 </p>
               </div>
               <div className="mt-8">
-                <Link to="/about">
-                  <Button variant="outline">Learn More</Button>
+                <Link to={localizedLink('/about')}>
+                  <Button variant="outline">{t('about.learnMore')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -789,15 +795,15 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div>
                   <div className="text-5xl font-bold text-primary mb-2">30+</div>
-                  <div className="text-body text-text-secondary">Projects Delivered</div>
+                  <div className="text-body text-text-secondary">{t('about.projectsDelivered')}</div>
                 </div>
                 <div>
                   <div className="text-5xl font-bold text-primary mb-2">85%</div>
-                  <div className="text-body text-text-secondary">Client Satisfaction</div>
+                  <div className="text-body text-text-secondary">{t('about.clientSatisfaction')}</div>
                 </div>
               </div>
-              <Link to="/contact#contact-form">
-                <Button variant="primary" className="w-full">Book a Call</Button>
+              <Link to={localizedLink('/contact#contact-form')}>
+                <Button variant="primary" className="w-full">{t('hero.ctaPrimary')}</Button>
               </Link>
             </motion.div>
           </div>
@@ -813,9 +819,9 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">OUR WORK</div>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('portfolio.sectionTitle')}</div>
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-12">
-              Explore Our Portfolio Showcase
+              {t('portfolio.title')}
             </h2>
           </motion.div>
           
@@ -846,7 +852,7 @@ export default function Home() {
                           }}
                         />
                       ) : (
-                        <span className="text-text-secondary">Project Image</span>
+                        <span className="text-text-secondary">{t('portfolio.projectImage')}</span>
                       )}
                     </div>
                     <div className="text-sm text-text-secondary uppercase tracking-wider mb-2">Case Study</div>
@@ -866,8 +872,8 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Link to="/portfolio">
-              <Button variant="primary" size="lg">More Projects</Button>
+            <Link to={localizedLink('/portfolio')}>
+              <Button variant="primary" size="lg">{t('portfolio.moreProjects')}</Button>
             </Link>
           </motion.div>
         </div>
@@ -884,18 +890,18 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">OUR SERVICES</div>
+              <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('services.sectionTitle')}</div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                Services We Offer
+                {t('services.title')}
               </h2>
               <p className="text-body-lg text-text-primary mb-4">
-                We provide comprehensive web solutions tailored to your business needs.
+                {t('services.description1')}
               </p>
               <p className="text-body-lg text-text-primary mb-8">
-                From custom web design to e-commerce solutions, we've got you covered.
+                {t('services.description2')}
               </p>
-              <Link to="/packages">
-                <Button variant="primary">Get a Quote</Button>
+              <Link to={localizedLink('/packages')}>
+                <Button variant="primary">{t('services.getQuote')}</Button>
               </Link>
             </motion.div>
 
@@ -924,7 +930,7 @@ export default function Home() {
                         ({String(index + 1).padStart(2, '0')}) {service.title}
                         {service.comingSoon && (
                           <span className="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full font-medium">
-                            Coming Soon
+                            {t('services.comingSoon')}
                           </span>
                         )}
                       </span>
@@ -963,14 +969,14 @@ export default function Home() {
                         
                         {service.benefits && (
                           <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded-lg">
-                            <div className="text-sm font-semibold text-primary mb-1">Key Benefit</div>
+                            <div className="text-sm font-semibold text-primary mb-1">{t('services.keyBenefit')}</div>
                             <div className="text-body-sm text-text-primary">{service.benefits}</div>
                           </div>
                         )}
                         
                         {service.features.length > 0 && (
                           <div className="mb-4">
-                            <div className="text-sm font-semibold text-primary mb-3">What's Included:</div>
+                            <div className="text-sm font-semibold text-primary mb-3">{t('services.whatsIncluded')}</div>
                             <ul className="space-y-2">
                               {service.features.map((feature, idx) => (
                                 <li key={idx} className="text-body-sm text-text-primary flex items-start">
@@ -982,11 +988,11 @@ export default function Home() {
                           </div>
                         )}
                         <div className="flex gap-3">
-                          <Link to="/packages">
-                            <Button variant="outline" size="sm">View Packages →</Button>
+                          <Link to={localizedLink('/packages')}>
+                            <Button variant="outline" size="sm">{t('services.viewPackages')}</Button>
                           </Link>
-                          <Link to="/contact#contact-form">
-                            <Button variant="primary" size="sm">Get Started</Button>
+                          <Link to={localizedLink('/contact#contact-form')}>
+                            <Button variant="primary" size="sm">{t('services.getStarted')}</Button>
                           </Link>
                         </div>
                           </div>
@@ -1051,12 +1057,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">BLOG</div>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('blog.sectionTitle')}</div>
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              Our expert insights.
+              {t('blog.title')}
             </h2>
             <p className="text-body-lg text-text-primary mb-8">
-              Our blog is still a work in progress. The first blog post will be released soon!
+              {t('blog.subtitle')}
             </p>
           </motion.div>
           
@@ -1077,10 +1083,10 @@ export default function Home() {
           >
             <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">WORK IN PROGRESS</div>
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              What I'm Building Now
+              {t('currentProjects.title')}
             </h2>
             <p className="text-body-lg text-text-primary max-w-2xl mx-auto">
-              See my current projects, what I'm learning, and what's coming next. Transparency in progress.
+              {t('currentProjects.subtitle')}
             </p>
           </motion.div>
 
@@ -1110,7 +1116,7 @@ export default function Home() {
                 {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-text-secondary">Progress</span>
+                    <span className="text-xs text-text-secondary">{t('currentProjects.progress')}</span>
                     <span className="text-xs font-semibold text-primary">{project.progress}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -1130,7 +1136,7 @@ export default function Home() {
                   <span>🔧 {project.technologies.length} tech</span>
                 </div>
 
-                <Link to="/current-projects">
+                <Link to={localizedLink('/current-projects')}>
                   <Button variant="outline" size="sm" className="w-full">
                     View Details →
                   </Button>
@@ -1146,7 +1152,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link to="/current-projects">
+            <Link to={localizedLink('/current-projects')}>
               <Button variant="primary" size="lg">
                 View All Current Projects
               </Button>

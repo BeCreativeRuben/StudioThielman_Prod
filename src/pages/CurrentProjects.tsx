@@ -1,26 +1,30 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import { currentProjects, finishedProjects } from '../data/currentProjects'
 import Button from '../components/Button'
 
-const statusColors = {
-  'planning': 'bg-blue-100 text-blue-800 border-blue-200',
-  'in-progress': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  'testing': 'bg-purple-100 text-purple-800 border-purple-200',
-  'almost-done': 'bg-green-100 text-green-800 border-green-200',
-  'completed': 'bg-emerald-100 text-emerald-800 border-emerald-200'
-}
-
-const statusLabels = {
-  'planning': 'Planning',
-  'in-progress': 'In Progress',
-  'testing': 'Testing',
-  'almost-done': 'Almost Done',
-  'completed': 'Completed'
-}
-
 export default function CurrentProjects() {
+  const { t } = useTranslation('currentProjects')
+  const localizedLink = useLocalizedLink()
+  
+  const statusColors = {
+    'planning': 'bg-blue-100 text-blue-800 border-blue-200',
+    'in-progress': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+    'testing': 'bg-purple-100 text-purple-800 border-purple-200',
+    'almost-done': 'bg-green-100 text-green-800 border-green-200',
+    'completed': 'bg-emerald-100 text-emerald-800 border-emerald-200'
+  }
+
+  const statusLabels = {
+    'planning': t('project.status.planning'),
+    'in-progress': t('project.status.inProgress'),
+    'testing': t('project.status.testing'),
+    'almost-done': t('project.status.almostDone'),
+    'completed': t('project.status.completed')
+  }
   const [expandedProject, setExpandedProject] = useState<string | null>(null)
 
   return (
@@ -35,10 +39,10 @@ export default function CurrentProjects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">WORK IN PROGRESS</div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Current Projects</h1>
+          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">{t('hero.sectionTitle')}</div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t('hero.title')}</h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            See what I'm building, learning, and planning. Transparency in progress and dedication.
+            {t('hero.subtitle')}
           </p>
         </motion.div>
       </section>
@@ -90,7 +94,7 @@ export default function CurrentProjects() {
                 <div className="p-6">
                   {/* Technologies */}
                   <div className="mb-4">
-                    <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">Technologies</div>
+                    <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">{t('project.technologies')}</div>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, idx) => (
                         <span key={idx} className="px-2 py-1 bg-accent text-text-primary text-xs rounded">
@@ -292,7 +296,7 @@ export default function CurrentProjects() {
                   {/* Technologies */}
                   {project.technologies.length > 0 && (
                     <div className="mb-4">
-                      <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">Technologies</div>
+                      <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">{t('project.technologies')}</div>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, idx) => (
                           <span key={idx} className="px-2 py-1 bg-emerald-50 text-emerald-700 text-xs rounded border border-emerald-200">
@@ -362,7 +366,7 @@ export default function CurrentProjects() {
             <p className="text-lg text-white/80 mb-8">
               Let's discuss how we can work together on your next project.
             </p>
-            <Link to="/contact#contact-form">
+            <Link to={localizedLink('/contact#contact-form')}>
               <Button variant="cta" size="lg">Get in Touch</Button>
             </Link>
           </motion.div>

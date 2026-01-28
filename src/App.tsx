@@ -1,8 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import CookieConsentBanner from './components/CookieConsentBanner'
+import LocaleRedirect from './components/LocaleRedirect'
+import { LocaleProvider } from './contexts/LocaleContext'
 import Home from './pages/Home'
 import Packages from './pages/Packages'
 import Portfolio from './pages/Portfolio'
@@ -17,12 +19,12 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Admin from './pages/Admin'
 
-function MainLayout({ children }: { children: React.ReactNode }) {
+function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        {children}
+        <Outlet />
       </main>
       <Footer />
       <CookieConsentBanner />
@@ -33,22 +35,46 @@ function MainLayout({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        <Route path="/packages" element={<MainLayout><Packages /></MainLayout>} />
-        <Route path="/portfolio" element={<MainLayout><Portfolio /></MainLayout>} />
-        <Route path="/portfolio/:slug" element={<MainLayout><PortfolioDetail /></MainLayout>} />
-        <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
-        <Route path="/blog/:slug" element={<MainLayout><BlogDetail /></MainLayout>} />
-        <Route path="/current-projects" element={<MainLayout><CurrentProjects /></MainLayout>} />
-        <Route path="/how-it-works" element={<MainLayout><HowItWorks /></MainLayout>} />
-        <Route path="/about" element={<MainLayout><About /></MainLayout>} />
-        <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
-        <Route path="/privacy" element={<MainLayout><Privacy /></MainLayout>} />
-        <Route path="/terms" element={<MainLayout><Terms /></MainLayout>} />
-      </Routes>
+      <LocaleProvider>
+        <ScrollToTop />
+        <Routes>
+          {/* Admin route - no locale prefix */}
+          <Route path="/admin" element={<Admin />} />
+          
+          {/* Locale-prefixed routes */}
+          <Route path="/:lang" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="packages" element={<Packages />} />
+            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="portfolio/:slug" element={<PortfolioDetail />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:slug" element={<BlogDetail />} />
+            <Route path="current-projects" element={<CurrentProjects />} />
+            <Route path="how-it-works" element={<HowItWorks />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
+          </Route>
+          
+          {/* Redirect non-prefixed paths to locale-prefixed */}
+          <Route path="/" element={<LocaleRedirect />} />
+          <Route path="/packages" element={<LocaleRedirect />} />
+          <Route path="/portfolio" element={<LocaleRedirect />} />
+          <Route path="/portfolio/:slug" element={<LocaleRedirect />} />
+          <Route path="/blog" element={<LocaleRedirect />} />
+          <Route path="/blog/:slug" element={<LocaleRedirect />} />
+          <Route path="/current-projects" element={<LocaleRedirect />} />
+          <Route path="/how-it-works" element={<LocaleRedirect />} />
+          <Route path="/about" element={<LocaleRedirect />} />
+          <Route path="/contact" element={<LocaleRedirect />} />
+          <Route path="/privacy" element={<LocaleRedirect />} />
+          <Route path="/terms" element={<LocaleRedirect />} />
+          
+          {/* Catch invalid locales - redirect to default */}
+          <Route path="*" element={<Navigate to="/en" replace />} />
+        </Routes>
+      </LocaleProvider>
     </Router>
   )
 }

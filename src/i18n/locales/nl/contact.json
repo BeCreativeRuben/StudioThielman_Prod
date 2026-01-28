@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "sectionTitle": "NEEM CONTACT OP",
+    "title": "Laten We Beginnen",
+    "subtitle": "Vertel ons over je project en we nemen binnen 24 uur contact met je op."
+  },
+  "getInTouch": {
+    "title": "Neem Contact Op",
+    "address": "Adres",
+    "email": "E-mail",
+    "phone": "Telefoon"
+  },
+  "form": {
+    "businessName": {
+      "label": "Bedrijfsnaam *",
+      "error": "Dit veld is verplicht"
+    },
+    "name": {
+      "label": "Je Naam *",
+      "error": "Dit veld is verplicht"
+    },
+    "email": {
+      "label": "E-mail *",
+      "error": "Voer een geldig e-mailadres in"
+    },
+    "phone": {
+      "label": "Telefoon *",
+      "error": "Dit veld is verplicht"
+    },
+    "businessDescription": {
+      "label": "Eenvoudige Bedrijfsbeschrijving *",
+      "maxChars": "(max 100 tekens)",
+      "error": "Dit veld is verplicht"
+    },
+    "package": {
+      "label": "Interesse Pakket *",
+      "error": "Selecteer een pakket",
+      "other": "Anders",
+      "otherPlaceholder": "Specificeer a.u.b...",
+      "otherError": "Specificeer je pakket interesse"
+    },
+    "existingWebsite": {
+      "label": "Heb je een bestaande website?",
+      "yes": "Ja",
+      "no": "Nee",
+      "urlLabel": "Website URL",
+      "urlOptional": "(optioneel)",
+      "urlPlaceholder": "https://voorbeeld.com"
+    },
+    "submit": {
+      "button": "Formulier Verzenden",
+      "submitting": "Verzenden..."
+    }
+  },
+  "success": {
+    "title": "Succes!",
+    "message": "We hebben je informatie ontvangen. We nemen binnen 24 uur contact met je op.",
+    "backToHome": "Terug naar Home",
+    "viewPackages": "Bekijk Pakketten"
+  },
+  "error": {
+    "message": "Ons systeem lijkt op dit moment problemen te ondervinden. Neem in plaats daarvan direct contact met ons op!"
+  }
+}

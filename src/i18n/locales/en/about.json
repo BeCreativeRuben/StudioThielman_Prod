@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "sectionTitle": "ABOUT US",
+    "title": "We're Here to Make Web Simple",
+    "subtitle": "And Powerful. Building exceptional digital experiences with passion and expertise."
+  },
+  "founder": {
+    "sectionTitle": "FOUNDER",
+    "name": "Ruben Thielman",
+    "bio1": "I'm a passionate software and web developer dedicated to creating exceptional digital experiences. With a focus on clean code, innovative solutions, and user-centered design, I bring ideas to life through technology.",
+    "bio2": "My work combines technical expertise with creative problem-solving to deliver projects that make an impact. Whether it's building responsive web applications, developing robust software solutions, or crafting intuitive user interfaces, I approach each project with attention to detail and a commitment to excellence.",
+    "bio3": "At 22 years old, I bring fresh energy and modern approaches to web development, ensuring your business gets cutting-edge solutions that actually work."
+  },
+  "team": {
+    "sectionTitle": "OUR TEAM",
+    "title": "Meet the Team",
+    "subtitle": "Young, passionate, dedicated to excellence",
+    "founderRole": "Founder & Developer",
+    "founderBio": "22-year-old passionate developer building web solutions. Dedicated to creating exceptional digital experiences with clean code, innovative solutions, and user-centered design."
+  },
+  "values": {
+    "sectionTitle": "OUR VALUES",
+    "title": "What We Stand For",
+    "subtitle": "The principles that guide everything we do.",
+    "items": {
+      "professionalism": {
+        "title": "Professionalism",
+        "description": "We are experts. Our work speaks. No compromises on quality."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Enterprise-grade solutions at startup prices. Everyone deserves a professional web presence."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "AI-powered solutions that give you a competitive edge. We stay ahead of the curve."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We're invested in your success. Personal support included. Your growth is our success."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Work Together?",
+    "subtitle": "Let's bring your vision to life with a website that stands out.",
+    "button": "Get Started Today"
+  }
+}

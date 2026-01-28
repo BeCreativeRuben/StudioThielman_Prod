@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "sectionTitle": "ONZE PAKKETTEN",
+    "title": "Kies Je Plan",
+    "subtitle": "Alles wat je nodig hebt om online te groeien. Transparante prijzen, geen verborgen kosten."
+  },
+  "pricing": {
+    "sectionTitle": "PRIJZEN",
+    "title": "Eenvoudige, Transparante Prijzen",
+    "subtitle": "Kies het pakket dat bij jouw behoeften past. Alle pakketten omvatten doorlopende ondersteuning en updates.",
+    "mostPopular": "MEEST POPULAIR",
+    "comingSoon": "BINNENKORT BESCHIKBAAR",
+    "whatsIncluded": "Wat is Inbegrepen:",
+    "perfectFor": "Perfect Voor:",
+    "choose": "Kies"
+  },
+  "packages": {
+    "starter": {
+      "name": "Starter",
+      "price": "€25/maand",
+      "startupFee": "Geen opstartkosten",
+      "description": "Kom online zonder de bank te breken. Een professionele webaanwezigheid voor iedereen.",
+      "features": [
+        "3-5 statische pagina's OF one-pager",
+        "Responsief Design (Mobiel-geoptimaliseerd)",
+        "E-mailservice (500 e-mails/maand)",
+        "Eenvoudige boekingssystemen, basis contactformulieren",
+        "Eenvoudige animaties",
+        "Basis on-page SEO-optimalisatie",
+        "E-mailondersteuning, documentatie"
+      ],
+      "idealFor": [
+        "Freelancers & persoonlijke merken",
+        "Kleine lokale bedrijven",
+        "Portfolio websites",
+        "Eenvoudige servicebedrijven"
+      ]
+    },
+    "growth": {
+      "name": "Growth",
+      "price": "€40/maand",
+      "startupFee": "+ €250 opstart",
+      "description": "Schaal je online aanwezigheid. Converteer bezoekers naar klanten. Blijf voor op concurrenten.",
+      "features": [
+        "Alle Starter Functies",
+        "Dynamische website met interactieve elementen",
+        "Geavanceerde E-mailservice (onbeperkt voor klanten & klanten)",
+        "Geoptimaliseerde conversiefunnels",
+        "Geautomatiseerde maandelijkse follow-ups, lead tracking",
+        "Eenvoudig CMS-systeem (contentbeheer zonder codering)",
+        "Complexe animaties",
+        "Volledige SEO-optimalisatie (trefwoorden, meta, structuur, snelheid)",
+        "Basis analytics & maandelijkse rapporten",
+        "Prioriteit e-mail & chatondersteuning"
+      ],
+      "idealFor": [
+        "Gevestigde kleine bedrijven (10-50 werknemers)",
+        "E-service providers (consultants, trainers)",
+        "Bedrijven met focus op klantacquisitie",
+        "Bedrijven die willen moderniseren"
+      ]
+    },
+    "proMax": {
+      "name": "Pro Max",
+      "price": "€80/maand",
+      "startupFee": "+ €500 opstart",
+      "description": "Ga volledig. Automatiseer je bedrijf. Laat AI voor je werken terwijl jij je focust op groei.",
+      "features": [
+        "Alle Growth Functies",
+        "Volledig CMS-systeem (complete content, media, sitebeheer)",
+        "E-commerce Integratie (Shopify, WooCommerce, of aangepast)",
+        "AI Conversies (real-time klantgegevens, continue A/B-testen)",
+        "AI-integraties (Chatbots, Call-ondersteuning, Aangepaste assistenten, N8N-workflows)",
+        "Aangepaste animaties (geavanceerde, op maat gemaakte interacties)",
+        "Geavanceerde Analytics (heat maps, gebruikersgedrag, aangepaste dashboards)",
+        "White-Glove Service (tweemaandelijkse reviews, driemaandelijkse strategie, toegewijd manager)",
+        "24/5 prioriteitsondersteuning, toegewijd contact"
+      ],
+      "idealFor": [
+        "E-commerce bedrijven",
+        "SaaS-platforms",
+        "AI-aangedreven serviceplatforms",
+        "Bedrijven die geavanceerde automatisering vereisen"
+      ]
+    }
+  },
+  "faq": {
+    "sectionTitle": "FAQ",
+    "title": "Veelgestelde Vragen",
+    "subtitle": "Alles wat je moet weten over onze pakketten",
+    "questions": {
+      "upgradeDowngrade": {
+        "question": "Kan ik later upgraden of downgraden?",
+        "answer": "Ja! Je kunt je pakket op elk moment upgraden of downgraden. Wijzigingen worden weerspiegeld in je volgende factureringscyclus."
+      },
+      "customFeatures": {
+        "question": "Wat gebeurt er als ik functies nodig heb die niet in mijn pakket zitten?",
+        "answer": "We bieden aangepaste add-ons aan en kunnen je pakket upgraden. Neem contact met ons op om je specifieke behoeften te bespreken."
+      },
+      "hiddenFees": {
+        "question": "Zijn er verborgen kosten?",
+        "answer": "Geen verborgen kosten. De getoonde prijzen zijn wat je betaalt. Opstartkosten zijn eenmalig alleen voor Growth en Pro Max pakketten."
+      },
+      "timeline": {
+        "question": "Hoe lang duurt het om mijn website te bouwen?",
+        "answer": "Starter: 1-2 weken, Growth: 2-4 weken, Pro Max: 4-6 weken. Tijdlijn hangt af van complexiteit en jouw reactiesnelheid."
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar om te Beginnen?",
+    "subtitle": "Heb je vragen? Laten we bespreken welk pakket geschikt is voor jou.",
+    "button": "Plan een Gratis Consultatie"
+  }
+}

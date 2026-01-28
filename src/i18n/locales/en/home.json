@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Innovative web solutions for modern business",
+    "subtitle": "Whether you're a startup, an established business, or an enterprise, we're here to help you reach new heights online.",
+    "ctaPrimary": "Book a Call",
+    "ctaSecondary": "View Packages",
+    "connectWithUs": "Connect with us"
+  },
+  "blogCountdown": {
+    "latestArticle": "Latest Article",
+    "readFullArticle": "Read Full Article",
+    "viewAllPosts": "View All Posts →",
+    "blogIsLive": "Blog is Live",
+    "firstPostAvailable": "The first blog post is now available."
+  },
+  "chat": {
+    "canIHelp": "Can I help?",
+    "founderDeveloper": "Founder & Developer",
+    "usuallyReplies": "Usually replies within 1 hour",
+    "pressEnterToSend": "Press Enter to send",
+    "sendMessage": "Send Message",
+    "yourName": "Your name",
+    "yourEmail": "Your email",
+    "yourMessage": "Your message..."
+  },
+  "about": {
+    "sectionTitle": "ABOUT US",
+    "title": "We build websites that work.",
+    "subtitle1": "No fluff. No overpromising. Just clean, effective websites that help your business grow.",
+    "subtitle2": "We focus on what matters: your goals, your audience, and results that make a difference.",
+    "learnMore": "Learn More",
+    "projectsDelivered": "Projects Delivered",
+    "clientSatisfaction": "Client Satisfaction",
+    "values": {
+      "professionalism": {
+        "title": "Professionalism",
+        "description": "We are experts. Our work speaks. No compromises on quality."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Enterprise-grade solutions at startup prices. Everyone deserves a professional web presence."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "AI-powered solutions that give you a competitive edge. We stay ahead of the curve."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We're invested in your success. Personal support included. Your growth is our success."
+      }
+    }
+  },
+  "portfolio": {
+    "sectionTitle": "OUR WORK",
+    "title": "Explore Our Portfolio Showcase",
+    "caseStudy": "Case Study",
+    "projectImage": "Project Image",
+    "moreProjects": "More Projects"
+  },
+  "services": {
+    "sectionTitle": "OUR SERVICES",
+    "title": "Services We Offer",
+    "description1": "We provide comprehensive web solutions tailored to your business needs.",
+    "description2": "From custom web design to e-commerce solutions, we've got you covered.",
+    "getQuote": "Get a Quote",
+    "comingSoon": "Coming Soon",
+    "keyBenefit": "Key Benefit",
+    "whatsIncluded": "What's Included:",
+    "viewPackages": "View Packages →",
+    "getStarted": "Get Started",
+    "items": {
+      "customWeb": {
+        "title": "Custom Web Design",
+        "description": "We create unique, responsive websites tailored to your brand and business needs. Every website is built from scratch, ensuring your brand stands out with a design that perfectly represents your vision.",
+        "benefits": "Get a website that looks professional, loads fast, and works perfectly on every device."
+      },
+      "branding": {
+        "title": "Branding & Graphic Design",
+        "description": "Complete branding solutions to establish your visual identity. From logo design to brand guidelines, we help you create a cohesive brand presence that resonates with your audience.",
+        "benefits": "Build a memorable brand that customers recognize and trust."
+      },
+      "seo": {
+        "title": "SEO & Digital Marketing",
+        "description": "Boost your online visibility and reach your target audience effectively. We implement proven SEO strategies and digital marketing tactics to drive organic traffic and conversions.",
+        "benefits": "Rank higher in search results and attract more qualified visitors to your website."
+      },
+      "ecommerce": {
+        "title": "E-commerce Solutions",
+        "description": "Full-featured online stores with secure payment processing. We build e-commerce platforms that make it easy for customers to browse, purchase, and return to your store.",
+        "benefits": "Sell products online with a secure, user-friendly platform that converts visitors into customers."
+      },
+      "ai": {
+        "title": "AI Integration & Automation",
+        "description": "Leverage the power of AI to automate your business processes. From chatbots to workflow automation, we integrate AI solutions that save time and improve customer experience.",
+        "benefits": "Automate repetitive tasks and provide 24/7 customer support with AI-powered solutions."
+      },
+      "cms": {
+        "title": "Content Management Systems",
+        "description": "Take control of your website content with easy-to-use CMS solutions. Update your website anytime, anywhere, without needing technical knowledge.",
+        "benefits": "Manage your website content independently, make updates instantly, and keep your site fresh."
+      }
+    }
+  },
+  "blog": {
+    "sectionTitle": "BLOG",
+    "title": "Our expert insights.",
+    "subtitle": "Our blog is still a work in progress. The first blog post will be released soon!"
+  },
+  "currentProjects": {
+    "sectionTitle": "WORK IN PROGRESS",
+    "title": "What I'm Building Now",
+    "subtitle": "See my current projects, what I'm learning, and what's coming next. Transparency in progress.",
+    "progress": "Progress"
+  }
+}

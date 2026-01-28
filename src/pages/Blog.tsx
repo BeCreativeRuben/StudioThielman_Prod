@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import { visibleBlogPosts } from '../data/blog'
 
 export default function Blog() {
+  const { t } = useTranslation('blog')
+  const localizedLink = useLocalizedLink()
   return (
     <div>
       {/* Hero Section - Dark Background */}
@@ -53,12 +57,12 @@ export default function Blog() {
                               target.style.display = 'none'
                               const parent = target.parentElement
                               if (parent) {
-                                parent.innerHTML = '<span class="text-text-secondary">Blog Image</span>'
+                                parent.innerHTML = `<span class="text-text-secondary">${t('posts.blogImage')}</span>`
                               }
                             }}
                           />
                         ) : (
-                          <span className="text-text-secondary">Blog Image</span>
+                          <span className="text-text-secondary">{t('posts.blogImage')}</span>
                         )}
                       </div>
                     </div>
@@ -72,7 +76,7 @@ export default function Blog() {
                       
                       <div className="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
                         <span className="text-sm font-semibold text-primary group-hover:text-cta transition-colors flex items-center gap-1">
-                          Read More
+                          {t('posts.readMore')}
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -97,14 +101,14 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Boost Your Online Presence?
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-white/80 mb-8">
-              Let's discuss how we can help your business stand out online.
+              {t('cta.subtitle')}
             </p>
-            <Link to="/contact#contact-form">
+            <Link to={localizedLink('/contact#contact-form')}>
               <Button variant="cta" size="lg">
-                Get Started Today
+                {t('cta.button')}
               </Button>
             </Link>
           </motion.div>

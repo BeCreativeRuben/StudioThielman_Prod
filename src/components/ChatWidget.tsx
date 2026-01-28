@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from './Button'
 import rubenImage from '../images/WhatsApp Image 2026-01-11 at 13.25.54.jpeg'
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
+  const localizedLink = useLocalizedLink()
 
   return (
     <>
@@ -101,7 +103,7 @@ export default function ChatWidget() {
 
             {/* Chat Input Area */}
             <div className="p-4 bg-white border-t border-border">
-              <Link to="/contact#contact-form" className="block" onClick={() => setIsOpen(false)}>
+              <Link to={localizedLink('/contact#contact-form')} className="block" onClick={() => setIsOpen(false)}>
                 <Button variant="cta" size="md" className="w-full">
                   Start Conversation
                 </Button>

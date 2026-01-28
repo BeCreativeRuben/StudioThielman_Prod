@@ -1,12 +1,16 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import { getBlogPostBySlug, BlogPost } from '../data/blog'
 
 export default function BlogDetail() {
+  const { t } = useTranslation('blog')
   const { slug } = useParams<{ slug: string }>()
   const navigate = useNavigate()
+  const localizedLink = useLocalizedLink()
   const [post, setPost] = useState<BlogPost | null>(null)
   const htmlSectionRefs = useRef<{ [key: number]: HTMLDivElement | null }>({})
 
@@ -78,7 +82,7 @@ export default function BlogDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-text-primary">Loading blog post...</p>
+          <p className="text-text-primary">{t('detail.loading')}</p>
         </div>
       </div>
     )
@@ -178,7 +182,7 @@ export default function BlogDetail() {
         >
           <div className="mb-6">
             <Link
-              to="/blog"
+              to={localizedLink('/blog')}
               className="text-white/80 hover:text-white transition-colors flex items-center gap-2 mb-6"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,7 +254,7 @@ export default function BlogDetail() {
             </h2>
             <Link to={post.cta.link}>
               <Button variant="cta" size="lg">
-                Contacteer Studio Thielman
+                {t('cta.button')}
               </Button>
             </Link>
           </motion.div>

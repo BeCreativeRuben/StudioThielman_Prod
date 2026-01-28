@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import rubenImage from '../images/WhatsApp Image 2026-01-11 at 13.25.54.jpeg'
 
@@ -31,6 +33,8 @@ function sanitizeMailchimpPhone(input: string): string {
 //    - MMERGE7: Existing Website URL (URL) - Optional
 
 export default function Contact() {
+  const { t } = useTranslation('contact')
+  const localizedLink = useLocalizedLink()
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({})
   const [formData, setFormData] = useState({
     businessName: '',
@@ -216,7 +220,7 @@ export default function Contact() {
         }
       }, 100)
       
-      alert('Our system seems to be experiencing some issues at the moment. Contact us directly instead!')
+      alert(t('error.message'))
     } finally {
       setIsSubmitting(false)
     }
@@ -242,10 +246,10 @@ export default function Contact() {
               We've received your information. We'll get back to you within 24 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/">
+              <Link to={localizedLink('/')}>
                 <Button variant="outline">Back to Home</Button>
               </Link>
-              <Link to="/packages">
+              <Link to={localizedLink('/packages')}>
                 <Button variant="cta">View Packages</Button>
               </Link>
             </div>
@@ -267,9 +271,9 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">GET IN TOUCH</div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Let's Get Started</h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">Tell us about your project and we'll get back to you within 24 hours.</p>
+          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">{t('hero.sectionTitle')}</div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t('hero.title')}</h1>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">{t('hero.subtitle')}</p>
         </motion.div>
       </section>
 
@@ -319,7 +323,7 @@ export default function Contact() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-body-lg text-text-primary font-medium">Email</p>
+                      <p className="text-body-lg text-text-primary font-medium">{t('getInTouch.email')}</p>
                       <a href="mailto:ruben.thielman@gmail.com" className="text-body text-cta hover:text-cta/80 transition-colors">
                         ruben.thielman@gmail.com
                       </a>
@@ -359,7 +363,7 @@ export default function Contact() {
                 {/* Business Name */}
                 <div data-field="businessName">
                   <label className={`block text-sm font-semibold mb-2 ${fieldErrors.businessName ? 'text-red-600' : 'text-text-primary'}`}>
-                    Business Name *
+                    {t('form.businessName.label')}
                   </label>
                   <input
                     type="text"
@@ -380,7 +384,7 @@ export default function Contact() {
                 {/* Name */}
                 <div data-field="name">
                   <label className={`block text-sm font-semibold mb-2 ${fieldErrors.name ? 'text-red-600' : 'text-text-primary'}`}>
-                    Your Name *
+                    {t('form.name.label')}
                   </label>
                   <input
                     type="text"
@@ -401,7 +405,7 @@ export default function Contact() {
                 {/* Email */}
                 <div data-field="email">
                   <label className={`block text-sm font-semibold mb-2 ${fieldErrors.email ? 'text-red-600' : 'text-text-primary'}`}>
-                    Email *
+                    {t('form.email.label')}
                   </label>
                   <input
                     type="email"
@@ -422,7 +426,7 @@ export default function Contact() {
                 {/* Phone */}
                 <div data-field="phone">
                   <label className={`block text-sm font-semibold mb-2 ${fieldErrors.phone ? 'text-red-600' : 'text-text-primary'}`}>
-                    Telephone *
+                    {t('form.phone.label')}
                   </label>
                   <input
                     type="tel"
@@ -436,7 +440,7 @@ export default function Contact() {
                     }`}
                   />
                   {fieldErrors.phone && (
-                    <p className="mt-1 text-sm text-red-600">This field is required</p>
+                    <p className="mt-1 text-sm text-red-600">{t('form.phone.error')}</p>
                   )}
                 </div>
 
@@ -459,7 +463,7 @@ export default function Contact() {
                   />
                   <div className="flex justify-between items-center mt-1">
                     {fieldErrors.businessDescription && (
-                      <p className="text-sm text-red-600">This field is required</p>
+                      <p className="text-sm text-red-600">{t('form.businessDescription.error')}</p>
                     )}
                     <p className={`text-sm ml-auto ${formData.businessDescription.length > 100 ? 'text-red-600' : 'text-text-secondary'}`}>
                       {formData.businessDescription.length}/100
@@ -470,10 +474,10 @@ export default function Contact() {
                 {/* Package */}
                 <div data-field="package">
                   <label className={`block text-sm font-semibold mb-3 ${fieldErrors.package ? 'text-red-600' : 'text-text-primary'}`}>
-                    Interested Package *
+                    {t('form.package.label')}
                   </label>
                   <div className="space-y-3">
-                    {['Starter', 'Growth', 'Pro Max', 'Other'].map((pkg) => (
+                    {['Starter', 'Growth', 'Pro Max', t('form.package.other')].map((pkg) => (
                       <label 
                         key={pkg} 
                         className={`flex items-center p-4 border-2 rounded-lg hover:border-cta hover:bg-cta/5 transition-all cursor-pointer ${
@@ -495,13 +499,13 @@ export default function Contact() {
                       </label>
                     ))}
                   </div>
-                  {formData.package === 'Other' && (
+                  {formData.package === t('form.package.other') && (
                     <div data-field="packageOther" className="mt-4">
                       <input
                         type="text"
                         value={formData.packageOther}
                         onChange={(e) => handleInputChange('packageOther', e.target.value)}
-                        placeholder="Please specify..."
+                        placeholder={t('form.package.otherPlaceholder')}
                         className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 transition-all bg-gray-50 mt-2 ${
                           fieldErrors.packageOther 
                             ? 'border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-200' 
@@ -509,19 +513,19 @@ export default function Contact() {
                         }`}
                       />
                       {fieldErrors.packageOther && (
-                        <p className="mt-1 text-sm text-red-600">Please specify your package interest</p>
+                        <p className="mt-1 text-sm text-red-600">{t('form.package.otherError')}</p>
                       )}
                     </div>
                   )}
-                  {fieldErrors.package && formData.package !== 'Other' && (
-                    <p className="mt-2 text-sm text-red-600">Please select a package</p>
+                  {fieldErrors.package && formData.package !== t('form.package.other') && (
+                    <p className="mt-2 text-sm text-red-600">{t('form.package.error')}</p>
                   )}
                 </div>
 
                 {/* Existing Website */}
                 <div>
                   <label className="block text-sm font-semibold text-text-primary mb-3">
-                    Do you have an existing website?
+                    {t('form.existingWebsite.label')}
                   </label>
                   <div className="space-y-3">
                     <label className="flex items-center p-4 border border-gray-200 rounded-lg hover:border-cta hover:bg-cta/5 transition-all cursor-pointer">
@@ -533,7 +537,7 @@ export default function Contact() {
                         onChange={(e) => handleInputChange('hasExistingWebsite', e.target.value)}
                         className="mr-3 w-4 h-4 text-cta focus:ring-cta"
                       />
-                      <span className="text-body text-text-primary font-medium">Yes</span>
+                      <span className="text-body text-text-primary font-medium">{t('form.existingWebsite.yes')}</span>
                     </label>
                     <label className="flex items-center p-4 border border-gray-200 rounded-lg hover:border-cta hover:bg-cta/5 transition-all cursor-pointer">
                       <input
@@ -544,19 +548,19 @@ export default function Contact() {
                         onChange={(e) => handleInputChange('hasExistingWebsite', e.target.value)}
                         className="mr-3 w-4 h-4 text-cta focus:ring-cta"
                       />
-                      <span className="text-body text-text-primary font-medium">No</span>
+                      <span className="text-body text-text-primary font-medium">{t('form.existingWebsite.no')}</span>
                     </label>
                   </div>
                   {formData.hasExistingWebsite === 'yes' && (
                     <div className="mt-4">
                       <label className="block text-sm font-semibold text-text-primary mb-2">
-                        Website URL <span className="text-text-secondary font-normal">(optional)</span>
+                        {t('form.existingWebsite.urlLabel')} <span className="text-text-secondary font-normal">{t('form.existingWebsite.urlOptional')}</span>
                       </label>
                       <input
                         type="url"
                         value={formData.existingWebsiteUrl}
                         onChange={(e) => handleInputChange('existingWebsiteUrl', e.target.value)}
-                        placeholder="https://example.com"
+                        placeholder={t('form.existingWebsite.urlPlaceholder')}
                         className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-cta focus:ring-cta/20 transition-all bg-gray-50"
                       />
                     </div>
@@ -571,7 +575,7 @@ export default function Contact() {
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Form'}
+                    {isSubmitting ? t('form.submit.submitting') : t('form.submit.button')}
                   </Button>
                 </div>
               </motion.div>

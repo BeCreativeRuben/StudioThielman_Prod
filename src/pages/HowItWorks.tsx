@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 
 export default function HowItWorks() {
+  const { t } = useTranslation('howItWorks')
+  const localizedLink = useLocalizedLink()
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
   const [expandedStep, setExpandedStep] = useState<number>(0) // First step expanded by default
 
   const steps = [
     {
-      number: '1',
-      title: 'Discovery',
-      description: "We'll have a call to discuss your goals and vision. If we're a solid match, we'll secure your spot in the calendar and get started.",
+      number: t('steps.items.discovery.number'),
+      title: t('steps.items.discovery.title'),
+      description: t('steps.items.discovery.description'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -19,9 +23,9 @@ export default function HowItWorks() {
       )
     },
     {
-      number: '2',
-      title: 'Direction',
-      description: 'You share the details; we build the strategy. We dive deep into your target audience and requirements to ensure the foundation is flawless.',
+      number: t('steps.items.direction.number'),
+      title: t('steps.items.direction.title'),
+      description: t('steps.items.direction.description'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -39,9 +43,9 @@ export default function HowItWorks() {
       )
     },
     {
-      number: '4',
-      title: 'Delivery',
-      description: 'From development to launch and beyond. We build your site, push it live, and provide the ongoing support needed to help you grow.',
+      number: t('steps.items.delivery.number'),
+      title: t('steps.items.delivery.title'),
+      description: t('steps.items.delivery.description'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -52,46 +56,46 @@ export default function HowItWorks() {
 
   const timelines = [
     {
-      package: 'Starter',
-      duration: '1-2 weeks',
-      description: 'Simple, straightforward websites with static pages',
+      package: t('timeline.items.starter.package'),
+      duration: t('timeline.items.starter.duration'),
+      description: t('timeline.items.starter.description'),
       color: 'bg-gray-100'
     },
     {
-      package: 'Growth',
-      duration: '2-4 weeks',
-      description: 'Dynamic websites with CMS and advanced features',
+      package: t('timeline.items.growth.package'),
+      duration: t('timeline.items.growth.duration'),
+      description: t('timeline.items.growth.description'),
       color: 'bg-cta/10',
       highlighted: true
     },
     {
-      package: 'Pro Max',
-      duration: '4-6 weeks',
-      description: 'Complex websites with e-commerce and AI integrations',
+      package: t('timeline.items.proMax.package'),
+      duration: t('timeline.items.proMax.duration'),
+      description: t('timeline.items.proMax.description'),
       color: 'bg-gray-100'
     }
   ]
 
   const faqs = [
     {
-      question: 'How long does a website take?',
-      answer: 'Timeline depends on your package. Starter: 1-2 weeks, Growth: 2-4 weeks, Pro Max: 4-6 weeks. We\'ll provide a detailed timeline after our discovery call.'
+      question: t('faq.questions.timeline.question'),
+      answer: t('faq.questions.timeline.answer')
     },
     {
-      question: 'Do I need to know anything technical?',
-      answer: 'Not at all! We handle all the technical aspects. You just need to provide content, images, and feedback. We\'ll guide you through everything.'
+      question: t('faq.questions.technical.question'),
+      answer: t('faq.questions.technical.answer')
     },
     {
-      question: 'Can you work in my language?',
-      answer: 'Yes! We can build websites in any language. Just let us know your preferred language during the discovery call.'
+      question: t('faq.questions.language.question'),
+      answer: t('faq.questions.language.answer')
     },
     {
-      question: 'What if I want to change things later?',
-      answer: 'All packages include support. You can request changes, and we\'ll handle them. Growth and Pro Max packages include more comprehensive update support.'
+      question: t('faq.questions.changes.question'),
+      answer: t('faq.questions.changes.answer')
     },
     {
-      question: 'Will I own my website?',
-      answer: 'Yes, you own your website. We build it for you, and it\'s yours. You can move it to another host if needed (though we recommend staying with us for support).'
+      question: t('faq.questions.ownership.question'),
+      answer: t('faq.questions.ownership.answer')
     }
   ]
 
@@ -123,10 +127,10 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">THE PROCESS</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">How We Work</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('steps.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">{t('steps.title')}</h2>
             <p className="text-lg text-text-primary max-w-2xl mx-auto leading-relaxed">
-              A streamlined process designed to get you online quickly and efficiently.
+              {t('steps.subtitle')}
             </p>
           </motion.div>
 
@@ -226,7 +230,7 @@ export default function HowItWorks() {
                 }`}>
                   {timeline.highlighted && (
                     <div className="bg-cta text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4 uppercase tracking-wider">
-                      MOST POPULAR
+                      {t('timeline.mostPopular')}
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-primary mb-3">{timeline.package}</h3>
@@ -249,10 +253,10 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">FAQ</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+            <div className="text-sm text-text-secondary uppercase tracking-wider mb-4">{t('faq.sectionTitle')}</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t('faq.title')}</h2>
             <p className="text-body-lg text-text-primary max-w-2xl mx-auto">
-              Everything you need to know about our process.
+              {t('faq.subtitle')}
             </p>
           </motion.div>
           <div className="space-y-4">
@@ -309,13 +313,13 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready? Let's Chat</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
           <p className="text-lg text-white/80 mb-8">
-            Book your free discovery call and let's discuss your project
+            {t('cta.subtitle')}
           </p>
-          <Link to="/contact#contact-form">
+          <Link to={localizedLink('/contact#contact-form')}>
             <Button variant="cta" size="lg">
-              Book Your Discovery Call
+              {t('cta.button')}
             </Button>
           </Link>
         </motion.div>

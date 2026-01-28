@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "sectionTitle": "GET IN TOUCH",
+    "title": "Let's Get Started",
+    "subtitle": "Tell us about your project and we'll get back to you within 24 hours."
+  },
+  "getInTouch": {
+    "title": "Get in Touch",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "form": {
+    "businessName": {
+      "label": "Business Name *",
+      "error": "This field is required"
+    },
+    "name": {
+      "label": "Your Name *",
+      "error": "This field is required"
+    },
+    "email": {
+      "label": "Email *",
+      "error": "Please enter a valid email address"
+    },
+    "phone": {
+      "label": "Telephone *",
+      "error": "This field is required"
+    },
+    "businessDescription": {
+      "label": "Simple Business Description *",
+      "maxChars": "(max 100 characters)",
+      "error": "This field is required"
+    },
+    "package": {
+      "label": "Interested Package *",
+      "error": "Please select a package",
+      "other": "Other",
+      "otherPlaceholder": "Please specify...",
+      "otherError": "Please specify your package interest"
+    },
+    "existingWebsite": {
+      "label": "Do you have an existing website?",
+      "yes": "Yes",
+      "no": "No",
+      "urlLabel": "Website URL",
+      "urlOptional": "(optional)",
+      "urlPlaceholder": "https://example.com"
+    },
+    "submit": {
+      "button": "Submit Form",
+      "submitting": "Submitting..."
+    }
+  },
+  "success": {
+    "title": "Success!",
+    "message": "We've received your information. We'll get back to you within 24 hours.",
+    "backToHome": "Back to Home",
+    "viewPackages": "View Packages"
+  },
+  "error": {
+    "message": "Our system seems to be experiencing some issues at the moment. Contact us directly instead!"
+  }
+}

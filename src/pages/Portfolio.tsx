@@ -1,18 +1,22 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 import Button from '../components/Button'
 import { portfolioItems } from '../data/portfolio'
 
 export default function Portfolio() {
-  const [filter, setFilter] = useState('All')
+  const { t } = useTranslation('portfolio')
+  const localizedLink = useLocalizedLink()
+  const [filter, setFilter] = useState(t('filters.all'))
 
   // Filter out "Coming Soon" items from main display
   const activeItems = portfolioItems.filter(item => !item.comingSoon)
 
-  const filters = ['All', 'Starter', 'Growth', 'Pro Max']
+  const filters = [t('filters.all'), t('filters.starter'), t('filters.growth'), t('filters.proMax')]
 
-  const filteredItems = filter === 'All'
+  const filteredItems = filter === t('filters.all')
     ? activeItems
     : activeItems.filter(item => item['package'] === filter)
 
@@ -89,7 +93,7 @@ export default function Portfolio() {
                                 target.style.display = 'none'
                                 const parent = target.parentElement
                                 if (parent) {
-                                  parent.innerHTML = '<span class="text-text-secondary">Preview Image</span>'
+                                  parent.innerHTML = `<span class="text-text-secondary">${t('portfolio.previewImage')}</span>`
                                 }
                               }}
                             />
@@ -105,7 +109,7 @@ export default function Portfolio() {
                       </div>
                     <div className="p-6 flex-grow flex flex-col">
                       <div className="flex items-center justify-between mb-2">
-                        <div className="text-xs text-text-secondary uppercase tracking-wider">Case Study</div>
+                        <div className="text-xs text-text-secondary uppercase tracking-wider">{t('portfolio.caseStudy')}</div>
                         <span className="text-xs text-text-secondary bg-gray-100 px-2 py-1 rounded">{item.clientType}</span>
                       </div>
                       <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-cta transition-colors">{item.title}</h3>
@@ -123,7 +127,7 @@ export default function Portfolio() {
                             ))}
                             {item.keyFeatures.length > 3 && (
                               <span className="text-xs bg-accent text-text-primary px-2 py-1 rounded">
-                                +{item.keyFeatures.length - 3} more
+                                +{item.keyFeatures.length - 3} {t('portfolio.more')}
                               </span>
                             )}
                           </div>
@@ -141,7 +145,7 @@ export default function Portfolio() {
                       <div className="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
                         <span className="text-xs text-text-secondary uppercase tracking-wider">{item.date}</span>
                         <span className="text-sm font-semibold text-primary group-hover:text-cta transition-colors flex items-center gap-1">
-                          View Project
+                          {t('portfolio.viewProject')}
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -167,14 +171,14 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Start Your Project?
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-white/80 mb-8">
-              Let's bring your vision to life with a website that stands out.
+              {t('cta.subtitle')}
             </p>
-            <Link to="/contact#contact-form">
+            <Link to={localizedLink('/contact#contact-form')}>
               <Button variant="cta" size="lg">
-                Get Started Today
+                {t('cta.button')}
               </Button>
             </Link>
           </motion.div>

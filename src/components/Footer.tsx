@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 
 export default function Footer() {
+  const { t } = useTranslation(['footer', 'common'])
+  const localizedLink = useLocalizedLink()
+  
   const openCookiePreferences = () => {
     window.dispatchEvent(new Event('st:open-cookie-preferences'))
   }
@@ -10,13 +15,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Top Section */}
         <div className="mb-12">
-          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">CONTACT US</div>
+          <div className="text-sm text-white/60 uppercase tracking-wider mb-4">{t('contactUs', { ns: 'footer' })}</div>
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 max-w-2xl">
-            From development to marketing, we bring your vision to life.
+            {t('tagline', { ns: 'footer' })}
           </h3>
-          <Link to="/contact#contact-form">
+          <Link to={localizedLink('/contact#contact-form')}>
             <button className="text-white font-semibold underline hover:no-underline transition-all hover:text-white/80">
-              Contact Us
+              {t('contactUs', { ns: 'common' })}
             </button>
           </Link>
         </div>
@@ -25,53 +30,53 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Quick Links */}
           <div>
-            <h4 className="text-h4 text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-h4 text-white font-semibold mb-4">{t('quickLinks', { ns: 'footer' })}</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-body text-white/80 hover:text-white transition-colors">
-                  About Us
+                <Link to={localizedLink('/about')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('aboutUs', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <Link to="/packages" className="text-body text-white/80 hover:text-white transition-colors">
-                  Services
+                <Link to={localizedLink('/packages')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('services', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="text-body text-white/80 hover:text-white transition-colors">
-                  Projects
+                <Link to={localizedLink('/portfolio')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('projects', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-body text-white/80 hover:text-white transition-colors">
-                  Blog
-                </a>
+                <Link to={localizedLink('/blog')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('blog', { ns: 'footer' })}
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-h4 text-white font-semibold mb-4">Services</h4>
+            <h4 className="text-h4 text-white font-semibold mb-4">{t('servicesTitle', { ns: 'footer' })}</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/#service-custom-web" className="text-body text-white/80 hover:text-white transition-colors">
-                  Custom Web
+                <Link to={localizedLink('/#service-custom-web')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('customWeb', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <Link to="/#service-branding" className="text-body text-white/80 hover:text-white transition-colors">
-                  Branding
+                <Link to={localizedLink('/#service-branding')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('branding', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <Link to="/#service-seo" className="text-body text-white/80 hover:text-white transition-colors">
-                  SEO
+                <Link to={localizedLink('/#service-seo')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('seo', { ns: 'footer' })}
                 </Link>
               </li>
               <li>
-                <Link to="/#service-ecommerce" className="text-body text-white/80 hover:text-white transition-colors">
-                  E-commerce
+                <Link to={localizedLink('/#service-ecommerce')} className="text-body text-white/80 hover:text-white transition-colors">
+                  {t('ecommerce', { ns: 'footer' })}
                 </Link>
               </li>
             </ul>
@@ -79,7 +84,7 @@ export default function Footer() {
 
           {/* Social Media */}
           <div>
-            <h4 className="text-h4 text-white font-semibold mb-4">Social Media</h4>
+            <h4 className="text-h4 text-white font-semibold mb-4">{t('socialMedia', { ns: 'footer' })}</h4>
             <ul className="space-y-3">
               <li>
                 <a 
@@ -140,21 +145,21 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-body-sm text-white/60">
-            © {new Date().getFullYear()} Studio Thielman. All rights reserved.
+            © {new Date().getFullYear()} Studio Thielman. {t('rightsReserved', { ns: 'footer' })}.
           </div>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-body-sm text-white/60 hover:text-white transition-colors">
-              Privacy Policy
+            <Link to={localizedLink('/privacy')} className="text-body-sm text-white/60 hover:text-white transition-colors">
+              {t('privacyPolicy', { ns: 'footer' })}
             </Link>
-            <Link to="/terms" className="text-body-sm text-white/60 hover:text-white transition-colors">
-              Terms of Service
+            <Link to={localizedLink('/terms')} className="text-body-sm text-white/60 hover:text-white transition-colors">
+              {t('termsOfService', { ns: 'footer' })}
             </Link>
             <button
               type="button"
               onClick={openCookiePreferences}
               className="text-body-sm text-white/60 hover:text-white transition-colors"
             >
-              Cookie Preferences
+              {t('cookiePreferences', { ns: 'footer' })}
             </button>
           </div>
         </div>

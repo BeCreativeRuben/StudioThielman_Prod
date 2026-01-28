@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Innovatieve weboplossingen voor modern ondernemen",
+    "subtitle": "Of je nu een startup, een gevestigd bedrijf of een enterprise bent, wij helpen je nieuwe hoogten online te bereiken.",
+    "ctaPrimary": "Plan een Gesprek",
+    "ctaSecondary": "Bekijk Pakketten",
+    "connectWithUs": "Volg ons"
+  },
+  "blogCountdown": {
+    "latestArticle": "Laatste Artikel",
+    "readFullArticle": "Lees Volledig Artikel",
+    "viewAllPosts": "Bekijk Alle Berichten →",
+    "blogIsLive": "Blog is Live",
+    "firstPostAvailable": "Het eerste blogbericht is nu beschikbaar."
+  },
+  "chat": {
+    "canIHelp": "Kan ik helpen?",
+    "founderDeveloper": "Oprichter & Ontwikkelaar",
+    "usuallyReplies": "Reageert meestal binnen 1 uur",
+    "pressEnterToSend": "Druk op Enter om te verzenden",
+    "sendMessage": "Verstuur Bericht",
+    "yourName": "Je naam",
+    "yourEmail": "Je e-mail",
+    "yourMessage": "Je bericht..."
+  },
+  "about": {
+    "sectionTitle": "OVER ONS",
+    "title": "We bouwen websites die werken.",
+    "subtitle1": "Geen poespas. Geen overdreven beloftes. Gewoon schone, effectieve websites die je bedrijf helpen groeien.",
+    "subtitle2": "We focussen op wat belangrijk is: jouw doelen, jouw publiek en resultaten die het verschil maken.",
+    "learnMore": "Meer Weten",
+    "projectsDelivered": "Projecten Afgerond",
+    "clientSatisfaction": "Klanttevredenheid",
+    "values": {
+      "professionalism": {
+        "title": "Professionaliteit",
+        "description": "We zijn experts. Ons werk spreekt. Geen compromissen over kwaliteit."
+      },
+      "accessibility": {
+        "title": "Toegankelijkheid",
+        "description": "Enterprise-oplossingen tegen startup-prijzen. Iedereen verdient een professionele webaanwezigheid."
+      },
+      "innovation": {
+        "title": "Innovatie",
+        "description": "AI-aangedreven oplossingen die je een concurrentievoordeel geven. We blijven voorop lopen."
+      },
+      "partnership": {
+        "title": "Partnerschap",
+        "description": "We zijn geïnvesteerd in jouw succes. Persoonlijke ondersteuning inbegrepen. Jouw groei is ons succes."
+      }
+    }
+  },
+  "portfolio": {
+    "sectionTitle": "ONS WERK",
+    "title": "Ontdek Onze Portfolio Showcase",
+    "caseStudy": "Case Study",
+    "projectImage": "Project Afbeelding",
+    "moreProjects": "Meer Projecten"
+  },
+  "services": {
+    "sectionTitle": "ONZE DIENSTEN",
+    "title": "Diensten die We Aanbieden",
+    "description1": "We bieden uitgebreide weboplossingen op maat voor jouw bedrijfsbehoeften.",
+    "description2": "Van aangepast webdesign tot e-commerce oplossingen, we hebben alles voor je.",
+    "getQuote": "Vraag een Offerte",
+    "comingSoon": "Binnenkort Beschikbaar",
+    "keyBenefit": "Belangrijkste Voordeel",
+    "whatsIncluded": "Wat is Inbegrepen:",
+    "viewPackages": "Bekijk Pakketten →",
+    "getStarted": "Aan de Slag",
+    "items": {
+      "customWeb": {
+        "title": "Aangepast Webdesign",
+        "description": "We creëren unieke, responsieve websites op maat voor jouw merk en bedrijfsbehoeften. Elke website wordt vanaf nul gebouwd, zodat jouw merk opvalt met een design dat jouw visie perfect weergeeft.",
+        "benefits": "Krijg een website die er professioneel uitziet, snel laadt en perfect werkt op elk apparaat."
+      },
+      "branding": {
+        "title": "Branding & Grafisch Ontwerp",
+        "description": "Complete brandingoplossingen om jouw visuele identiteit te vestigen. Van logo-ontwerp tot merkrichtlijnen, we helpen je een samenhangende merkpresence te creëren die resoneert met jouw publiek.",
+        "benefits": "Bouw een onvergetelijk merk dat klanten herkennen en vertrouwen."
+      },
+      "seo": {
+        "title": "SEO & Digitaal Marketing",
+        "description": "Verhoog je online zichtbaarheid en bereik je doelgroep effectief. We implementeren bewezen SEO-strategieën en digitale marketingtactieken om organisch verkeer en conversies te stimuleren.",
+        "benefits": "Rangschik hoger in zoekresultaten en trek meer gekwalificeerde bezoekers naar je website."
+      },
+      "ecommerce": {
+        "title": "E-commerce Oplossingen",
+        "description": "Volledig uitgeruste online winkels met veilige betalingsverwerking. We bouwen e-commerce platforms die het gemakkelijk maken voor klanten om te bladeren, te kopen en terug te keren naar je winkel.",
+        "benefits": "Verkoop producten online met een veilig, gebruiksvriendelijk platform dat bezoekers omzet in klanten."
+      },
+      "ai": {
+        "title": "AI-integratie & Automatisering",
+        "description": "Benut de kracht van AI om je bedrijfsprocessen te automatiseren. Van chatbots tot workflowautomatisering, we integreren AI-oplossingen die tijd besparen en de klantervaring verbeteren.",
+        "benefits": "Automatiseer repetitieve taken en bied 24/7 klantondersteuning met AI-aangedreven oplossingen."
+      },
+      "cms": {
+        "title": "Content Management Systemen",
+        "description": "Neem de controle over je website-inhoud met gebruiksvriendelijke CMS-oplossingen. Update je website altijd en overal, zonder technische kennis nodig te hebben.",
+        "benefits": "Beheer je website-inhoud onafhankelijk, maak direct updates en houd je site actueel."
+      }
+    }
+  },
+  "blog": {
+    "sectionTitle": "BLOG",
+    "title": "Onze expert inzichten.",
+    "subtitle": "Onze blog is nog in ontwikkeling. Het eerste blogbericht wordt binnenkort vrijgegeven!"
+  },
+  "currentProjects": {
+    "sectionTitle": "WERK IN UITVOERING",
+    "title": "Wat Ik Nu Bouw",
+    "subtitle": "Zie mijn huidige projecten, wat ik leer en wat er komt. Transparantie in voortgang.",
+    "progress": "Voortgang"
+  }
+}

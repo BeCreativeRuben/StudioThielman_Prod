@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "sectionTitle": "OUR WORK",
+    "title": "See What's Possible",
+    "subtitle": "Real websites built with care. Explore our portfolio of successful projects."
+  },
+  "filters": {
+    "all": "All",
+    "starter": "Starter",
+    "growth": "Growth",
+    "proMax": "Pro Max"
+  },
+  "portfolio": {
+    "caseStudy": "Case Study",
+    "previewImage": "Preview Image",
+    "keyFeatures": "Key Features",
+    "more": "more",
+    "results": "Results",
+    "viewProject": "View Project"
+  },
+  "detail": {
+    "loading": "Loading project...",
+    "backToPortfolio": "Back to Portfolio",
+    "projectOverview": "Project Overview",
+    "launchDate": "Launch Date",
+    "packageTier": "Package Tier",
+    "screenshots": "Screenshots",
+    "screenshotComingSoon": "Screenshot coming soon",
+    "livePreview": "Live Preview",
+    "openInNewTab": "Open in New Tab",
+    "loadingPreview": "Loading preview...",
+    "unableToLoadPreview": "Unable to load preview",
+    "visitLiveSite": "Visit live site →",
+    "keyFeatures": "Key Features",
+    "whyThisPackage": "Why This Package?",
+    "results": "Results",
+    "readyForSimilar": "Ready for a Similar Project?",
+    "discussPackage": "Let's discuss how we can bring your vision to life with the {package} package.",
+    "getStarted": "Get Started",
+    "viewOnGitHub": "View on GitHub",
+    "visitLiveSite": "Visit Live Site"
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "subtitle": "Let's bring your vision to life with a website that stands out.",
+    "button": "Get Started Today"
+  }
+}

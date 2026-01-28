@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "sectionTitle": "ONS WERK",
+    "title": "Zie Wat Mogelijk Is",
+    "subtitle": "Echte websites gebouwd met zorg. Ontdek ons portfolio van succesvolle projecten."
+  },
+  "filters": {
+    "all": "Alles",
+    "starter": "Starter",
+    "growth": "Growth",
+    "proMax": "Pro Max"
+  },
+  "portfolio": {
+    "caseStudy": "Case Study",
+    "previewImage": "Voorbeeld Afbeelding",
+    "keyFeatures": "Belangrijkste Functies",
+    "more": "meer",
+    "results": "Resultaten",
+    "viewProject": "Bekijk Project"
+  },
+  "detail": {
+    "loading": "Project laden...",
+    "backToPortfolio": "Terug naar Portfolio",
+    "projectOverview": "Project Overzicht",
+    "launchDate": "Lanceringsdatum",
+    "packageTier": "Pakket Niveau",
+    "screenshots": "Schermafbeeldingen",
+    "screenshotComingSoon": "Schermafbeelding binnenkort beschikbaar",
+    "livePreview": "Live Voorbeeld",
+    "openInNewTab": "Openen in Nieuw Tabblad",
+    "loadingPreview": "Voorbeeld laden...",
+    "unableToLoadPreview": "Kan voorbeeld niet laden",
+    "visitLiveSite": "Bezoek live site →",
+    "keyFeatures": "Belangrijkste Functies",
+    "whyThisPackage": "Waarom Dit Pakket?",
+    "results": "Resultaten",
+    "readyForSimilar": "Klaar voor een Soortgelijk Project?",
+    "discussPackage": "Laten we bespreken hoe we jouw visie tot leven kunnen brengen met het {package} pakket.",
+    "getStarted": "Aan de Slag",
+    "viewOnGitHub": "Bekijk op GitHub",
+    "visitLiveSite": "Bezoek Live Site"
+  },
+  "cta": {
+    "title": "Klaar om je Project te Starten?",
+    "subtitle": "Laten we jouw visie tot leven brengen met een website die opvalt.",
+    "button": "Begin Vandaag"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "sectionTitle": "WORK IN PROGRESS",
+    "title": "Current Projects",
+    "subtitle": "See what I'm building, learning, and planning. Transparency in progress and dedication."
+  },
+  "project": {
+    "progress": "Progress",
+    "technologies": "Technologies",
+    "status": {
+      "planning": "Planning",
+      "inProgress": "In Progress",
+      "testing": "Testing",
+      "almostDone": "Almost Done",
+      "completed": "Completed"
+    }
+  }
+}

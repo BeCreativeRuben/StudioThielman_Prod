@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "sectionTitle": "OUR PROCESS",
+    "title": "From Chat to Launch",
+    "subtitle": "Our process, simplified. See how we transform your vision into a powerful online presence."
+  },
+  "steps": {
+    "sectionTitle": "THE PROCESS",
+    "title": "How We Work",
+    "subtitle": "A streamlined process designed to get you online quickly and efficiently.",
+    "items": {
+      "discovery": {
+        "number": "1",
+        "title": "Discovery",
+        "description": "We'll have a call to discuss your goals and vision. If we're a solid match, we'll secure your spot in the calendar and get started."
+      },
+      "direction": {
+        "number": "2",
+        "title": "Direction",
+        "description": "You share the details; we build the strategy. We dive deep into your target audience and requirements to ensure the foundation is flawless."
+      },
+      "design": {
+        "number": "3",
+        "title": "Design",
+        "description": "We translate your brand into a custom visual proposal. This is where your business objectives meet high-end, intentional aesthetics."
+      },
+      "delivery": {
+        "number": "4",
+        "title": "Delivery",
+        "description": "From development to launch and beyond. We build your site, push it live, and provide the ongoing support needed to help you grow."
+      }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "TIMELINE",
+    "title": "Timeline Expectations",
+    "subtitle": "Realistic timelines based on your chosen package.",
+    "mostPopular": "MOST POPULAR",
+    "items": {
+      "starter": {
+        "package": "Starter",
+        "duration": "1-2 weeks",
+        "description": "Simple, straightforward websites with static pages"
+      },
+      "growth": {
+        "package": "Growth",
+        "duration": "2-4 weeks",
+        "description": "Dynamic websites with CMS and advanced features"
+      },
+      "proMax": {
+        "package": "Pro Max",
+        "duration": "4-6 weeks",
+        "description": "Complex websites with e-commerce and AI integrations"
+      }
+    }
+  },
+  "faq": {
+    "sectionTitle": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our process",
+    "questions": {
+      "timeline": {
+        "question": "How long does a website take?",
+        "answer": "Timeline depends on your package. Starter: 1-2 weeks, Growth: 2-4 weeks, Pro Max: 4-6 weeks. We'll provide a detailed timeline after our discovery call."
+      },
+      "technical": {
+        "question": "Do I need to know anything technical?",
+        "answer": "Not at all! We handle all the technical aspects. You just need to provide content, images, and feedback. We'll guide you through everything."
+      },
+      "language": {
+        "question": "Can you work in my language?",
+        "answer": "Yes! We can build websites in any language. Just let us know your preferred language during the discovery call."
+      },
+      "changes": {
+        "question": "What if I want to change things later?",
+        "answer": "All packages include support. You can request changes, and we'll handle them. Growth and Pro Max packages include more comprehensive update support."
+      },
+      "ownership": {
+        "question": "Will I own my website?",
+        "answer": "Yes, you own your website. We build it for you, and it's yours. You can move it to another host if needed (though we recommend staying with us for support)."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready? Let's Chat",
+    "subtitle": "Book your free discovery call and let's discuss your project",
+    "button": "Book Your Discovery Call"
+  }
+}

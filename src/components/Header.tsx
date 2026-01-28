@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { useLocale, useLocalizedLink } from '../contexts/LocaleContext'
 import logoImage from '../images/fulllogo copy.png'
 
 export default function Header() {
   const location = useLocation()
+  const { t } = useTranslation(['header', 'common'])
+  const { locale, changeLanguage } = useLocale()
+  const localizedLink = useLocalizedLink()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -54,14 +59,20 @@ export default function Header() {
   }, [location.pathname])
   
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/packages', label: 'Packages' },
-    { path: '/portfolio', label: 'Portfolio' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/how-it-works', label: 'How we work' },
-    { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', labelKey: 'home' },
+    { path: '/packages', labelKey: 'packages' },
+    { path: '/portfolio', labelKey: 'portfolio' },
+    { path: '/blog', labelKey: 'blog' },
+    { path: '/how-it-works', labelKey: 'howItWorks' },
+    { path: '/about', labelKey: 'about' },
+    { path: '/contact', labelKey: 'contact' },
   ]
+  
+  // Check if current path matches (accounting for locale prefix)
+  const isActivePath = (path: string) => {
+    const currentPath = location.pathname.replace(/^\/(en|nl)/, '') || '/'
+    return currentPath === path
+  }
   
   return (
     <motion.header
@@ -79,7 +90,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+          <Link to={localizedLink('/')} className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
             <img 
               src={logoImage} 
               alt="Studio Thielman Logo" 
@@ -97,9 +108,9 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
+                to={localizedLink(link.path)}
                 className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-                  location.pathname === link.path
+                  isActivePath(link.path)
                     ? isScrolled 
                       ? 'text-primary font-semibold' 
                       : 'text-white font-semibold'
@@ -108,14 +119,47 @@ export default function Header() {
                       : 'text-white/80 hover:text-white'
                 }`}
               >
-                {link.label}
+                {t(link.labelKey, { ns: 'header' })}
               </Link>
             ))}
           </div>
           
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
-            <Link to="/contact#contact-form">
+          {/* Language Switcher & CTA Button - Desktop */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Language Switcher */}
+            <div className="flex items-center gap-2 border rounded-lg overflow-hidden">
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`px-3 py-1.5 text-xs font-medium transition-colors ${
+                  locale === 'en'
+                    ? isScrolled
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-primary'
+                    : isScrolled
+                      ? 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                      : 'bg-white/10 text-white/80 hover:bg-white/20'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => changeLanguage('nl')}
+                className={`px-3 py-1.5 text-xs font-medium transition-colors ${
+                  locale === 'nl'
+                    ? isScrolled
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-primary'
+                    : isScrolled
+                      ? 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                      : 'bg-white/10 text-white/80 hover:bg-white/20'
+                }`}
+              >
+                NL
+              </button>
+            </div>
+            
+            {/* CTA Button */}
+            <Link to={localizedLink('/contact#contact-form')}>
               {isScrolled ? (
                 <motion.button
                   type="button"
@@ -124,7 +168,7 @@ export default function Header() {
                   whileTap={{ scale: 0.98 }}
                   style={{ color: '#FFFFFF', WebkitTextFillColor: '#FFFFFF', backgroundColor: '#000000' }}
                 >
-                  <span style={{ color: '#FFFFFF' }}>Book a Call</span>
+                  <span style={{ color: '#FFFFFF' }}>{t('bookACall', { ns: 'common' })}</span>
                 </motion.button>
               ) : (
                 <motion.button
@@ -134,7 +178,7 @@ export default function Header() {
                   whileTap={{ scale: 0.98 }}
                   style={{ color: '#1F2937', WebkitTextFillColor: '#1F2937' }}
                 >
-                  <span style={{ color: '#1F2937' }}>Book a Call</span>
+                  <span style={{ color: '#1F2937' }}>{t('bookACall', { ns: 'common' })}</span>
                 </motion.button>
               )}
             </Link>
@@ -178,10 +222,10 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
-                    to={link.path}
+                    to={localizedLink(link.path)}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-                      location.pathname === link.path
+                      isActivePath(link.path)
                         ? isScrolled
                           ? 'text-primary font-semibold'
                           : 'text-white font-semibold'
@@ -190,11 +234,50 @@ export default function Header() {
                           : 'text-white/80 hover:text-white'
                     }`}
                   >
-                    {link.label}
+                    {t(link.labelKey, { ns: 'header' })}
                   </Link>
                 ))}
+                {/* Language Switcher - Mobile */}
+                <div className="px-4">
+                  <div className="flex items-center gap-2 border rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => {
+                        changeLanguage('en')
+                        setMobileMenuOpen(false)
+                      }}
+                      className={`flex-1 px-3 py-2 text-xs font-medium transition-colors ${
+                        locale === 'en'
+                          ? isScrolled
+                            ? 'bg-primary text-white'
+                            : 'bg-white text-primary'
+                          : isScrolled
+                            ? 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                      }`}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('nl')
+                        setMobileMenuOpen(false)
+                      }}
+                      className={`flex-1 px-3 py-2 text-xs font-medium transition-colors ${
+                        locale === 'nl'
+                          ? isScrolled
+                            ? 'bg-primary text-white'
+                            : 'bg-white text-primary'
+                          : isScrolled
+                            ? 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                            : 'bg-white/10 text-white/80 hover:bg-white/20'
+                      }`}
+                    >
+                      NL
+                    </button>
+                  </div>
+                </div>
                 <div className="px-4 pt-2">
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  <Link to={localizedLink('/contact')} onClick={() => setMobileMenuOpen(false)}>
                     {isScrolled ? (
                       <motion.button
                         type="button"
@@ -203,7 +286,7 @@ export default function Header() {
                         whileTap={{ scale: 0.98 }}
                         style={{ color: '#FFFFFF', WebkitTextFillColor: '#FFFFFF', backgroundColor: '#000000' }}
                       >
-                        <span style={{ color: '#FFFFFF' }}>Book a Call</span>
+                        <span style={{ color: '#FFFFFF' }}>{t('bookACall', { ns: 'common' })}</span>
                       </motion.button>
                     ) : (
                       <motion.button
@@ -213,7 +296,7 @@ export default function Header() {
                         whileTap={{ scale: 0.98 }}
                         style={{ color: '#1F2937', WebkitTextFillColor: '#1F2937' }}
                       >
-                        <span style={{ color: '#1F2937' }}>Book a Call</span>
+                        <span style={{ color: '#1F2937' }}>{t('bookACall', { ns: 'common' })}</span>
                       </motion.button>
                     )}
                   </Link>

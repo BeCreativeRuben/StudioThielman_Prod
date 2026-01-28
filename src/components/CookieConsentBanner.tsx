@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLocalizedLink } from '../contexts/LocaleContext'
 
 type ConsentChoice = 'accept' | 'reject'
 
@@ -53,6 +54,7 @@ function updateGtagConsent(choice: ConsentChoice) {
 export default function CookieConsentBanner() {
   const savedChoice = useMemo(() => getStoredChoice(), [])
   const [isOpen, setIsOpen] = useState(savedChoice === null)
+  const localizedLink = useLocalizedLink()
 
   useEffect(() => {
     const onOpen = () => setIsOpen(true)
@@ -91,7 +93,7 @@ export default function CookieConsentBanner() {
             <p className="mt-1 text-gray-600">
               We use cookies to measure site usage and improve performance. You can accept all cookies or reject them.
               See our{' '}
-              <Link to="/privacy" className="font-semibold underline hover:no-underline">
+              <Link to={localizedLink('/privacy')} className="font-semibold underline hover:no-underline">
                 Privacy Policy
               </Link>
               .

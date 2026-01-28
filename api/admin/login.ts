@@ -21,22 +21,29 @@ async function ensureDb() {
   }
   
   dbInitPromise = (async () => {
-    await initializeDatabase()
-    
-    // Initialize admin user if needed
-    const admin = await dbGet('SELECT * FROM admin_users WHERE username = ?', ['admin'])
-    if (!admin) {
-      const defaultHash = await bcrypt.hash('admin123', 10)
-      await dbRun(
-        'INSERT INTO admin_users (username, passwordHash, email) VALUES (?, ?, ?)',
-        ['admin', defaultHash, 'admin@studiothielman.com']
-      )
+    try {
+      await initializeDatabase()
+      
+      // Initialize admin user if needed (non-blocking, don't fail if this errors)
+      try {
+        const admin = await dbGet('SELECT * FROM admin_users WHERE username = ?', ['admin'])
+        if (!admin) {
+          const defaultHash = await bcrypt.hash('admin123', 10)
+          await dbRun(
+            'INSERT INTO admin_users (username, passwordHash, email) VALUES (?, ?, ?)',
+            ['admin', defaultHash, 'admin@studiothielman.com']
+          )
+        }
+      } catch (adminInitError: any) {
+        // Log but don't fail - admin might already exist
+        console.error('Admin user initialization error (non-critical):', adminInitError)
+      }
+    } catch (error: any) {
+      console.error('Database initialization failed:', error)
+      dbInitPromise = null
+      throw error
     }
-  })().catch((error: any) => {
-    console.error('Database initialization failed:', error)
-    dbInitPromise = null
-    throw error
-  })
+  })()
   
   return dbInitPromise
 }
@@ -58,6 +65,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(405).json({ error: 'Method not allowed' })
     }
 
+    // Initialize database
     try {
       await ensureDb()
     } catch (dbError: any) {
@@ -65,10 +73,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('Error stack:', dbError.stack)
       return res.status(500).json({ 
         error: 'Database initialization failed',
-        message: dbError.message || 'Unknown database error'
+        message: dbError.message || 'Unknown database error',
+        details: process.env.NODE_ENV === 'development' ? dbError.stack : undefined
       })
     }
 
+    // Process login
     try {
       const { username, password } = req.body
 
@@ -76,7 +86,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Username and password are required' })
       }
 
-      // Get admin user with error handling
+      // Get admin user
       let admin: { id: number; username: string; passwordHash: string } | undefined
       try {
         admin = await dbGet<{ id: number; username: string; passwordHash: string }>(
@@ -103,7 +113,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         isValid = await bcrypt.compare(password, admin.passwordHash)
       } catch (bcryptError: any) {
         console.error('Password comparison error:', bcryptError)
-        return res.status(500).json({ error: 'Password verification failed' })
+        console.error('Error stack:', bcryptError.stack)
+        return res.status(500).json({ 
+          error: 'Password verification failed',
+          details: process.env.NODE_ENV === 'development' ? bcryptError.stack : undefined
+        })
       }
 
       if (!isValid) {
@@ -116,7 +130,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         token = generateToken(admin.id, admin.username)
       } catch (tokenError: any) {
         console.error('Token generation error:', tokenError)
-        return res.status(500).json({ error: 'Token generation failed' })
+        console.error('Error stack:', tokenError.stack)
+        return res.status(500).json({ 
+          error: 'Token generation failed',
+          details: process.env.NODE_ENV === 'development' ? tokenError.stack : undefined
+        })
       }
 
       return res.json({
@@ -129,7 +147,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('Error stack:', error.stack)
       return res.status(500).json({ 
         error: 'Failed to process login',
-        message: error.message || 'Unknown error'
+        message: error.message || 'Unknown error',
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
       })
     }
   } catch (error: any) {

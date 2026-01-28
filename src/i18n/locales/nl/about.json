@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "sectionTitle": "OVER ONS",
+    "title": "We Zijn Hier om Web Eenvoudig te Maken",
+    "subtitle": "En Krachtig. Uitzonderlijke digitale ervaringen bouwen met passie en expertise."
+  },
+  "founder": {
+    "sectionTitle": "OPRICHTER",
+    "name": "Ruben Thielman",
+    "bio1": "Ik ben een gepassioneerde software- en webontwikkelaar die zich toelegt op het creëren van uitzonderlijke digitale ervaringen. Met focus op schone code, innovatieve oplossingen en gebruikersgericht ontwerp, breng ik ideeën tot leven door technologie.",
+    "bio2": "Mijn werk combineert technische expertise met creatief probleemoplossen om projecten te leveren die impact maken. Of het nu gaat om het bouwen van responsieve webapplicaties, het ontwikkelen van robuuste softwareoplossingen of het creëren van intuïtieve gebruikersinterfaces, ik benader elk project met aandacht voor detail en een toewijding aan excellentie.",
+    "bio3": "Op 22-jarige leeftijd breng ik verse energie en moderne benaderingen naar webontwikkeling, zodat jouw bedrijf geavanceerde oplossingen krijgt die echt werken."
+  },
+  "team": {
+    "sectionTitle": "ONS TEAM",
+    "title": "Ontmoet het Team",
+    "subtitle": "Jong, gepassioneerd, toegewijd aan excellentie",
+    "founderRole": "Oprichter & Ontwikkelaar",
+    "founderBio": "22-jarige gepassioneerde ontwikkelaar die weboplossingen bouwt. Toegewijd aan het creëren van uitzonderlijke digitale ervaringen met schone code, innovatieve oplossingen en gebruikersgericht ontwerp."
+  },
+  "values": {
+    "sectionTitle": "ONZE WAARDEN",
+    "title": "Waar We Voor Staan",
+    "subtitle": "De principes die alles wat we doen begeleiden.",
+    "items": {
+      "professionalism": {
+        "title": "Professionaliteit",
+        "description": "We zijn experts. Ons werk spreekt. Geen compromissen over kwaliteit."
+      },
+      "accessibility": {
+        "title": "Toegankelijkheid",
+        "description": "Enterprise-oplossingen tegen startup-prijzen. Iedereen verdient een professionele webaanwezigheid."
+      },
+      "innovation": {
+        "title": "Innovatie",
+        "description": "AI-aangedreven oplossingen die je een concurrentievoordeel geven. We blijven voorop lopen."
+      },
+      "partnership": {
+        "title": "Partnerschap",
+        "description": "We zijn geïnvesteerd in jouw succes. Persoonlijke ondersteuning inbegrepen. Jouw groei is ons succes."
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar om Samen te Werken?",
+    "subtitle": "Laten we jouw visie tot leven brengen met een website die opvalt.",
+    "button": "Begin Vandaag"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "sectionTitle": "BLOG",
+    "title": "Our Expert Insights",
+    "subtitle": "Tips, insights, and strategies to help your business thrive online."
+  },
+  "posts": {
+    "article": "Article",
+    "blogImage": "Blog Image",
+    "readMore": "Read More"
+  },
+  "detail": {
+    "loading": "Loading blog post...",
+    "backToBlog": "Back to Blog",
+    "publishedOn": "Published on",
+    "readTime": "min read"
+  },
+  "cta": {
+    "title": "Ready to Boost Your Online Presence?",
+    "subtitle": "Let's discuss how we can help your business stand out online.",
+    "button": "Get Started Today"
+  }
+}

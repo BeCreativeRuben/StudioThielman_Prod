@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "sectionTitle": "ONS PROCES",
+    "title": "Van Chat tot Lancering",
+    "subtitle": "Ons proces, vereenvoudigd. Zie hoe we jouw visie transformeren in een krachtige online aanwezigheid."
+  },
+  "steps": {
+    "sectionTitle": "HET PROCES",
+    "title": "Hoe We Werken",
+    "subtitle": "Een gestroomlijnd proces ontworpen om je snel en efficiënt online te krijgen.",
+    "items": {
+      "discovery": {
+        "number": "1",
+        "title": "Ontdekking",
+        "description": "We hebben een gesprek om jouw doelen en visie te bespreken. Als we een goede match zijn, reserveren we jouw plek in de agenda en beginnen we."
+      },
+      "direction": {
+        "number": "2",
+        "title": "Richting",
+        "description": "Jij deelt de details; wij bouwen de strategie. We duiken diep in jouw doelgroep en vereisten om ervoor te zorgen dat de fundering perfect is."
+      },
+      "design": {
+        "number": "3",
+        "title": "Ontwerp",
+        "description": "We vertalen jouw merk naar een aangepast visueel voorstel. Dit is waar jouw bedrijfsdoelen samenkomen met hoogwaardige, opzettelijke esthetiek."
+      },
+      "delivery": {
+        "number": "4",
+        "title": "Levering",
+        "description": "Van ontwikkeling tot lancering en daarna. We bouwen jouw site, zetten hem live en bieden de doorlopende ondersteuning die nodig is om je te helpen groeien."
+      }
+    }
+  },
+  "timeline": {
+    "sectionTitle": "TIJDLIJN",
+    "title": "Tijdlijn Verwachtingen",
+    "subtitle": "Realistische tijdlijnen gebaseerd op jouw gekozen pakket.",
+    "mostPopular": "MEEST POPULAIR",
+    "items": {
+      "starter": {
+        "package": "Starter",
+        "duration": "1-2 weken",
+        "description": "Eenvoudige, rechttoe rechtaan websites met statische pagina's"
+      },
+      "growth": {
+        "package": "Growth",
+        "duration": "2-4 weken",
+        "description": "Dynamische websites met CMS en geavanceerde functies"
+      },
+      "proMax": {
+        "package": "Pro Max",
+        "duration": "4-6 weken",
+        "description": "Complexe websites met e-commerce en AI-integraties"
+      }
+    }
+  },
+  "faq": {
+    "sectionTitle": "FAQ",
+    "title": "Veelgestelde Vragen",
+    "subtitle": "Alles wat je moet weten over ons proces",
+    "questions": {
+      "timeline": {
+        "question": "Hoe lang duurt een website?",
+        "answer": "Tijdlijn hangt af van jouw pakket. Starter: 1-2 weken, Growth: 2-4 weken, Pro Max: 4-6 weken. We geven een gedetailleerde tijdlijn na ons ontdekkingsgesprek."
+      },
+      "technical": {
+        "question": "Moet ik iets technisch weten?",
+        "answer": "Helemaal niet! Wij verzorgen alle technische aspecten. Je hoeft alleen content, afbeeldingen en feedback te leveren. We begeleiden je door alles heen."
+      },
+      "language": {
+        "question": "Kunnen jullie in mijn taal werken?",
+        "answer": "Ja! We kunnen websites in elke taal bouwen. Laat ons gewoon weten wat jouw voorkeurstaal is tijdens het ontdekkingsgesprek."
+      },
+      "changes": {
+        "question": "Wat als ik later dingen wil veranderen?",
+        "answer": "Alle pakketten omvatten ondersteuning. Je kunt wijzigingen aanvragen en wij verzorgen ze. Growth en Pro Max pakketten omvatten uitgebreidere update-ondersteuning."
+      },
+      "ownership": {
+        "question": "Zal ik mijn website bezitten?",
+        "answer": "Ja, je bezit je website. We bouwen hem voor je en hij is van jou. Je kunt hem naar een andere host verplaatsen indien nodig (hoewel we aanbevelen bij ons te blijven voor ondersteuning)."
+      }
+    }
+  },
+  "cta": {
+    "title": "Klaar? Laten We Praten",
+    "subtitle": "Plan je gratis ontdekkingsgesprek en laten we jouw project bespreken",
+    "button": "Plan Je Ontdekkingsgesprek"
+  }
+}

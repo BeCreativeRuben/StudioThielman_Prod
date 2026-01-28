@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "sectionTitle": "WERK IN UITVOERING",
+    "title": "Huidige Projecten",
+    "subtitle": "Zie wat ik bouw, leer en plan. Transparantie in voortgang en toewijding."
+  },
+  "project": {
+    "progress": "Voortgang",
+    "technologies": "Technologieën",
+    "status": {
+      "planning": "Planning",
+      "inProgress": "In Uitvoering",
+      "testing": "Testen",
+      "almostDone": "Bijna Klaar",
+      "completed": "Voltooid"
+    }
+  }
+}
